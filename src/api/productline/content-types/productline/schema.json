@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "productlines",
+  "info": {
+    "singularName": "productline",
+    "pluralName": "productlines",
+    "displayName": "productline",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "productLine": {
+      "type": "string"
+    },
+    "textDescription": {
+      "type": "text"
+    },
+    "htmlDescription": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

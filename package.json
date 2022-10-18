@@ -9,21 +9,18 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
+  "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-documentation": "^4.4.3",
-    "@strapi/plugin-i18n": "4.4.3",
-    "@strapi/plugin-users-permissions": "4.4.3",
-    "@strapi/provider-email-nodemailer": "^4.4.3",
-    "@strapi/provider-email-sendgrid": "^4.4.3",
     "@strapi/strapi": "4.4.3",
-    "mysql": "2.18.1",
-    "strapi-provider-email-nodemailer": "^3.6.10"
+    "@strapi/plugin-users-permissions": "4.4.3",
+    "@strapi/plugin-i18n": "4.4.3",
+    "mysql": "2.18.1"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "cd44ccf8-e0d4-4f38-bf32-b28b83c8be26"
+    "uuid": "0876b478-5eb1-49c4-bce1-849400e540c6"
   },
   "engines": {
     "node": ">=14.19.1 <=18.x.x",

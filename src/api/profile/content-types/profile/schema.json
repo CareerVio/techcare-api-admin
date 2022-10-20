@@ -4,18 +4,44 @@
   "info": {
     "singularName": "profile",
     "pluralName": "profiles",
-    "displayName": "Profile "
+    "displayName": "Profile ",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "firstName": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "FirstName": {
       "type": "string"
     },
     "LastName": {
       "type": "string"
+    },
+    "TelephoneNumber": {
+      "type": "string"
+    },
+    "BirthDay": {
+      "type": "date"
+    },
+    "Sex": {
+      "type": "string"
+    },
+    "Picture": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

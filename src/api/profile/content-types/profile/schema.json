@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "profiles",
+  "info": {
+    "singularName": "profile",
+    "pluralName": "profiles",
+    "displayName": "Profile "
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "prefix": {
+      "type": "string"
+    },
+    "FirstName": {
+      "type": "string"
+    },
+    "LastName": {
+      "type": "string"
+    },
+    "Sex": {
+      "type": "string"
+    },
+    "Weight": {
+      "type": "decimal"
+    },
+    "Height": {
+      "type": "decimal"
+    },
+    "Birthday": {
+      "type": "date"
+    },
+    "Blood": {
+      "type": "string"
+    },
+    "Medical_Condition": {
+      "type": "string"
+    },
+    "TelNo": {
+      "type": "string"
+    },
+    "Pic": {
+      "type": "string"
+    }
+  }
+}

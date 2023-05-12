@@ -1,0 +1,124 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questionnaires",
+  "info": {
+    "singularName": "questionnaire",
+    "pluralName": "questionnaires",
+    "displayName": "Questionnaire",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "careTakerEmail": {
+      "type": "email"
+    },
+    "careTakerPhone": {
+      "type": "string",
+      "required": false
+    },
+    "careTakerFirstName": {
+      "type": "string",
+      "required": false
+    },
+    "hospitalCard": {
+      "type": "string"
+    },
+    "bloodPressureMin": {
+      "type": "decimal",
+      "required": false
+    },
+    "bloodPressureMax": {
+      "type": "decimal",
+      "required": false
+    },
+    "heartRateMin": {
+      "type": "decimal",
+      "required": false
+    },
+    "heartRateMax": {
+      "type": "decimal",
+      "required": false
+    },
+    "medicineDetail": {
+      "type": "text",
+      "required": false
+    },
+    "medicine": {
+      "type": "text",
+      "required": false
+    },
+    "treatHospitalAndDoctor": {
+      "type": "string"
+    },
+    "medicineAllergies": {
+      "type": "string",
+      "required": false
+    },
+    "preferredDoctorName": {
+      "type": "string"
+    },
+    "foodAllergies": {
+      "type": "string",
+      "required": false
+    },
+    "therapy": {
+      "type": "string"
+    },
+    "insuranceIdCard": {
+      "type": "string"
+    },
+    "insuranceCompany": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::insurance-company.insurance-company"
+    },
+    "weight": {
+      "type": "decimal",
+      "required": false
+    },
+    "height": {
+      "type": "decimal",
+      "required": false
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "bloodGroup": {
+      "type": "string",
+      "required": false
+    },
+    "careTakerLastName": {
+      "type": "string"
+    },
+    "mostVisitHospitalOthers": {
+      "type": "string"
+    },
+    "mostVisitHospital": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::medical-facility.medical-facility"
+    },
+    "perferredDoctor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::doctor.doctor"
+    },
+    "emergencyFirstName": {
+      "type": "string"
+    },
+    "emergencyLastName": {
+      "type": "string"
+    },
+    "emergencyPhone": {
+      "type": "string"
+    },
+    "emergencyEmail": {
+      "type": "email"
+    }
+  }
+}

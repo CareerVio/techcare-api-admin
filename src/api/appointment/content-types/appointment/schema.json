@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "appointments",
+  "info": {
+    "singularName": "appointment",
+    "pluralName": "appointments",
+    "displayName": "Appointment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "appointmentDetail": {
+      "type": "text"
+    },
+    "isAccept": {
+      "type": "boolean"
+    },
+    "doctor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::doctor.doctor"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "medicalFacility": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::medical-facility.medical-facility"
+    },
+    "date": {
+      "type": "date"
+    },
+    "fromTime": {
+      "type": "time"
+    },
+    "toTime": {
+      "type": "time"
+    },
+    "diseases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::disease.disease"
+    }
+  }
+}

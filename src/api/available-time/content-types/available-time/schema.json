@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "available_times",
+  "info": {
+    "singularName": "available-time",
+    "pluralName": "available-times",
+    "displayName": "AvailableTime",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fromTime": {
+      "type": "time"
+    },
+    "toTime": {
+      "type": "time"
+    },
+    "doctor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::doctor.doctor"
+    },
+    "weekDay": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "insurance_companies",
+  "info": {
+    "singularName": "insurance-company",
+    "pluralName": "insurance-companies",
+    "displayName": "InsuranceCompany",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

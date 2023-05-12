@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "device_datas",
+  "info": {
+    "singularName": "device-data",
+    "pluralName": "device-datas",
+    "displayName": "DeviceData",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dateTime": {
+      "type": "datetime"
+    },
+    "fallDetect": {
+      "type": "string"
+    },
+    "stepCount": {
+      "type": "biginteger"
+    },
+    "temperature": {
+      "type": "decimal"
+    },
+    "heartRate": {
+      "type": "integer"
+    },
+    "rssi": {
+      "type": "string"
+    },
+    "chkSum": {
+      "type": "biginteger"
+    },
+    "lat": {
+      "type": "float"
+    },
+    "lng": {
+      "type": "float"
+    },
+    "ActiveStatus": {
+      "type": "boolean",
+      "default": false
+    },
+    "spo2": {
+      "type": "float"
+    },
+    "device": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::device.device"
+    },
+    "bloodPressureDia": {
+      "type": "integer"
+    },
+    "bloodPressureSys": {
+      "type": "integer"
+    },
+    "battery": {
+      "type": "integer"
+    }
+  }
+}

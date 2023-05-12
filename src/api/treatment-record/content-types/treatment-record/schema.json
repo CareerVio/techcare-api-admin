@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "treatment_records",
+  "info": {
+    "singularName": "treatment-record",
+    "pluralName": "treatment-records",
+    "displayName": "TreatmentRecord"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "appointment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::appointment.appointment"
+    },
+    "treatment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::treatment.treatment"
+    },
+    "diagnosis": {
+      "type": "text"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "tax": {
+      "type": "decimal"
+    },
+    "fromDate": {
+      "type": "date"
+    },
+    "fromTime": {
+      "type": "time"
+    },
+    "toDate": {
+      "type": "date"
+    },
+    "toTime": {
+      "type": "time"
+    },
+    "discount": {
+      "type": "decimal"
+    },
+    "isRequestForRecord": {
+      "type": "boolean"
+    },
+    "isFollowUp": {
+      "type": "boolean"
+    },
+    "followUpAppointment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::appointment.appointment"
+    }
+  }
+}

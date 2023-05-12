@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medical_facilities",
+  "info": {
+    "singularName": "medical-facility",
+    "pluralName": "medical-facilities",
+    "displayName": "MedicalFacility",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "detail": {
+      "type": "text"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Hospital",
+        "Clinic"
+      ]
+    },
+    "locationLat": {
+      "type": "float"
+    },
+    "locationLng": {
+      "type": "float"
+    },
+    "medicalFacilityImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "address": {
+      "type": "text"
+    }
+  }
+}

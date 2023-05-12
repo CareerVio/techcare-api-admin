@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emergencies",
+  "info": {
+    "singularName": "emergency",
+    "pluralName": "emergencies",
+    "displayName": "Emergency",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "patient": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "medicalFacility": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::medical-facility.medical-facility"
+    },
+    "detail": {
+      "type": "text"
+    },
+    "approvedOn": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Cancel",
+        "Requested",
+        "Approved",
+        "On the way",
+        "In Progress",
+        "Closed"
+      ]
+    }
+  }
+}

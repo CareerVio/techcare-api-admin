@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "diseases",
+  "info": {
+    "singularName": "disease",
+    "pluralName": "diseases",
+    "displayName": "Disease"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "string"
+    }
+  }
+}

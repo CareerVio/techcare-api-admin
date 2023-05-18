@@ -17,7 +17,7 @@ export default factories.createCoreController('api::payment.payment' , ({strapi}
           });
           const charge = {
             'description': data.description,
-            'amount': data.amount, 
+            'amount': data.amount * 100, 
             'currency': 'thb',
             'capture': true,
             'card': data.token

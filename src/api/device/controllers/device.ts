@@ -4,7 +4,7 @@ import { factories } from '@strapi/strapi';
 export default factories.createCoreController('api::device.device' , ({strapi}) => ({
     async createDevice(ctx) {
         try {
-          console.log("HY");
+          
           const { id } = ctx.state.user;
           let { data } = ctx.request.body;
           

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "Payment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "fee": {
+      "type": "decimal"
+    },
+    "isAdminConfirm": {
+      "type": "boolean"
+    },
+    "paymentEvidence": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "package": {
+      "type": "enumeration",
+      "enum": [
+        "package1month",
+        "package3months",
+        "package6months",
+        "package1years"
+      ]
+    },
+    "token": {
+      "type": "string"
+    },
+    "paymentDate": {
+      "type": "datetime"
+    }
+  }
+}

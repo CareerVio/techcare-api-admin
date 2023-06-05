@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stocks",
+  "info": {
+    "singularName": "stock",
+    "pluralName": "stocks",
+    "displayName": "Stock",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "equipmentId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Stick",
+        "Defect",
+        "Hear Rate Sensor",
+        "Board Control",
+        "GSM Module",
+        "Head of Stick",
+        "Body",
+        "Basic Leg",
+        "Legs 3",
+        "Legs 4",
+        "Legs 3 Flat",
+        "Legs 4 Flat",
+        "Body Temperature Sensor",
+        "Li-ion Battery",
+        "Sim Card",
+        "Packaging Box.",
+        "USB -C Wire"
+      ]
+    },
+    "partName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::part.part"
+    },
+    "bomLists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bom-list.bom-list",
+      "mappedBy": "stock"
+    }
+  }
+}

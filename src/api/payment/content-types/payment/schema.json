@@ -4,7 +4,8 @@
   "info": {
     "singularName": "payment",
     "pluralName": "payments",
-    "displayName": "Payment"
+    "displayName": "Payment",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -26,22 +27,14 @@
       "type": "boolean"
     },
     "paymentEvidence": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
-    },
-    "package": {
-      "type": "enumeration",
-      "enum": [
-        "package1month",
-        "package3months",
-        "package6months",
-        "package1years"
       ]
     },
     "token": {
@@ -49,6 +42,12 @@
     },
     "paymentDate": {
       "type": "datetime"
+    },
+    "package": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

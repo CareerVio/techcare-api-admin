@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "receipt_details",
+  "info": {
+    "singularName": "receipt-detail",
+    "pluralName": "receipt-details",
+    "displayName": "ReceiptDetail",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "no": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "unit": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "decimal"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "receipt": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::receipt.receipt",
+      "inversedBy": "receiptDetails"
+    }
+  }
+}

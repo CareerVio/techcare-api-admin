@@ -74,4 +74,15 @@ export default factories.createCoreController('api::appointment.appointment' , (
             return ctx.badRequest(err);
         }
     },
+    async getAppointmentsByMedicalFacility(ctx){
+        const { id } = ctx.state.user;
+
+        let [ medical_facility ] = await strapi.entityService.findMany('api::medical-facility.medical-facility', {
+            filters : { admin : id },
+        });
+        const filters = { medicalFacility: medical_facility.id };
+        const sort = { id : 'desc'};
+        const data = await strapi.entityService.findMany('api::appointment.appointment', { filters , sort });
+        ctx.body = { data };
+    }
 }));

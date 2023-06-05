@@ -10,6 +10,10 @@ export default {
         path: '/appointments/doctors/:searchCriteria', 
         handler: 'appointment.getDoctors',
       },
-      
+      {
+        method: 'GET',
+        path: '/admin/appointments', 
+        handler: 'appointment.getAppointmentsByMedicalFacility',
+      },
     ]
 }

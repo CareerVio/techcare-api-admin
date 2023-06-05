@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchase_orders",
+  "info": {
+    "singularName": "purchase-order",
+    "pluralName": "purchase-orders",
+    "displayName": "PurchaseOrder"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "perchaseOrderNumber": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "tel": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "text"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "dateTime": {
+      "type": "datetime"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "vat": {
+      "type": "decimal"
+    },
+    "grandTotal": {
+      "type": "decimal"
+    },
+    "approvedOn": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Waiting",
+        "Approved"
+      ]
+    },
+    "note": {
+      "type": "text"
+    },
+    "purchaseOrderDetail": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::purchase-order-detail.purchase-order-detail",
+      "mappedBy": "purchase_order"
+    }
+  }
+}

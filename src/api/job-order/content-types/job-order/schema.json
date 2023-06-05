@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_orders",
+  "info": {
+    "singularName": "job-order",
+    "pluralName": "job-orders",
+    "displayName": "JOBOrder",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "technicianName": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "customerName": {
+      "type": "string"
+    },
+    "equipment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::stock.stock"
+    },
+    "requestedPart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::part.part"
+    },
+    "startTime": {
+      "type": "time"
+    },
+    "endTime": {
+      "type": "time"
+    }
+  }
+}

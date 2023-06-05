@@ -8,9 +8,6 @@ export default factories.createCoreController('api::payment.payment' , ({strapi}
           
           const { id } = ctx.state.user;
           let { data } = ctx.request.body;
-
-          data["user"] = id;
-          
           
           const charge = {
             'description': data.description,
@@ -21,13 +18,16 @@ export default factories.createCoreController('api::payment.payment' , ({strapi}
           };
 
           const response = await strapi.service('api::payment.payment').omise(charge);
-          console.log(response);
+
+          data["name"] = response.card.name;
+          //console.log(response.card.name);
           await strapi.entityService.create('api::payment.payment',{ data });
           
           ctx.body = response;
   
 
         } catch (err) {
+          console.log(err);
           ctx.badRequest(err);
         }
     },

@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoices",
+  "info": {
+    "singularName": "invoice",
+    "pluralName": "invoices",
+    "displayName": "Invoice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customerId": {
+      "type": "string"
+    },
+    "customerName": {
+      "type": "string"
+    },
+    "taxId": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "contactAddress": {
+      "type": "text"
+    },
+    "contactName": {
+      "type": "string"
+    },
+    "invoiceNumber": {
+      "type": "string"
+    },
+    "dateTime": {
+      "type": "datetime"
+    },
+    "subTotal": {
+      "type": "decimal"
+    },
+    "vat": {
+      "type": "decimal"
+    },
+    "grandTotal": {
+      "type": "decimal"
+    },
+    "paymentTerm": {
+      "type": "string"
+    },
+    "deriveryDate": {
+      "type": "date"
+    },
+    "invoiceDetails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invoice-detail.invoice-detail",
+      "mappedBy": "invoice"
+    },
+    "approvedOn": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Waiting",
+        "Approved"
+      ]
+    },
+    "note": {
+      "type": "text"
+    },
+    "taxInvoiceNumber": {
+      "type": "string"
+    },
+    "pricePerUnit": {
+      "type": "decimal"
+    }
+  }
+}

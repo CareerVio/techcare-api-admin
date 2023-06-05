@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "technician_appointments",
+  "info": {
+    "singularName": "technician-appointment",
+    "pluralName": "technician-appointments",
+    "displayName": "TechnicianAppointment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "appointmentId": {
+      "type": "string"
+    },
+    "technicianName": {
+      "type": "string"
+    },
+    "appointmentDate": {
+      "type": "date"
+    },
+    "appointmentTime": {
+      "type": "time"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "equipment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::stock.stock"
+    }
+  }
+}

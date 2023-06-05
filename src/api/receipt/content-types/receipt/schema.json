@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "receipts",
+  "info": {
+    "singularName": "receipt",
+    "pluralName": "receipts",
+    "displayName": "Receipt",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "receiptNumber": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "customerName": {
+      "type": "string"
+    },
+    "taxId": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "dateTime": {
+      "type": "datetime"
+    },
+    "taxReceiptNumber": {
+      "type": "string"
+    },
+    "subTotal": {
+      "type": "decimal"
+    },
+    "vat": {
+      "type": "decimal"
+    },
+    "grandTotal": {
+      "type": "decimal"
+    },
+    "receiptDetails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::receipt-detail.receipt-detail",
+      "mappedBy": "receipt"
+    },
+    "deriveryDate": {
+      "type": "date"
+    },
+    "approvedOn": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Waiting"
+      ]
+    },
+    "note": {
+      "type": "text"
+    },
+    "pricePerUnit": {
+      "type": "decimal"
+    }
+  }
+}

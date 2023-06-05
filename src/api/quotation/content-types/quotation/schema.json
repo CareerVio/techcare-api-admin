@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quotations",
+  "info": {
+    "singularName": "quotation",
+    "pluralName": "quotations",
+    "displayName": "Quotation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quotationNumber": {
+      "type": "string"
+    },
+    "contactName": {
+      "type": "string"
+    },
+    "customerName": {
+      "type": "string"
+    },
+    "projectName": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "taxId": {
+      "type": "string"
+    },
+    "customerPhoneNumber": {
+      "type": "string"
+    },
+    "dateTime": {
+      "type": "datetime"
+    },
+    "paymentTerm": {
+      "type": "string"
+    },
+    "sale": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "deriveryDate": {
+      "type": "date"
+    },
+    "approvedOn": {
+      "type": "datetime"
+    },
+    "note": {
+      "type": "text"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Waiting",
+        "Approved"
+      ]
+    },
+    "quotationDetail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::quotation-detail.quotation-detail"
+    }
+  }
+}

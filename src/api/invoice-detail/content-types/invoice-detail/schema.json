@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoice_details",
+  "info": {
+    "singularName": "invoice-detail",
+    "pluralName": "invoice-details",
+    "displayName": "InvoiceDetail",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "No": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "unit": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "decimal"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "invoice": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::invoice.invoice",
+      "inversedBy": "invoiceDetails"
+    }
+  }
+}

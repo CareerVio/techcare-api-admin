@@ -46,6 +46,11 @@
     },
     "address": {
       "type": "text"
+    },
+    "admin": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

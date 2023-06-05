@@ -4,7 +4,8 @@
   "info": {
     "singularName": "treatment-record",
     "pluralName": "treatment-records",
-    "displayName": "TreatmentRecord"
+    "displayName": "TreatmentRecord",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -55,6 +56,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::appointment.appointment"
+    },
+    "medicalFacility": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::medical-facility.medical-facility"
     }
   }
 }

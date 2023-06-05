@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quotation_details",
+  "info": {
+    "singularName": "quotation-detail",
+    "pluralName": "quotation-details",
+    "displayName": "QuotationDetail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "no": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "decimal"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "pricePerUnit": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "decimal"
+    }
+  }
+}

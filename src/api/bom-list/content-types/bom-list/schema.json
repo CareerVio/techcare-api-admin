@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bom_lists",
+  "info": {
+    "singularName": "bom-list",
+    "pluralName": "bom-lists",
+    "displayName": "BOMList"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "partName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::part.part"
+    },
+    "partNumber": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::stock.stock"
+    },
+    "pricePerUnit": {
+      "type": "decimal"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "stock": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stock.stock",
+      "inversedBy": "bomLists"
+    }
+  }
+}

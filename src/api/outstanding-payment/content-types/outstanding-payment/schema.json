@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "outstanding_payments",
+  "info": {
+    "singularName": "outstanding-payment",
+    "pluralName": "outstanding-payments",
+    "displayName": "OutstandingPayment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "dateTime": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Waiting",
+        "Approved"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "file": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "note": {
+      "type": "text"
+    }
+  }
+}

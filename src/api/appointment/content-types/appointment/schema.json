@@ -16,7 +16,8 @@
       "type": "text"
     },
     "isAccept": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "doctor": {
       "type": "relation",

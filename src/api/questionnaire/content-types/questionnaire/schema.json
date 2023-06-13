@@ -103,7 +103,7 @@
       "relation": "oneToOne",
       "target": "api::medical-facility.medical-facility"
     },
-    "perferredDoctor": {
+    "preferredDoctor": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::doctor.doctor"
@@ -119,6 +119,9 @@
     },
     "emergencyEmail": {
       "type": "email"
+    },
+    "preferredDoctorOthers": {
+      "type": "string"
     }
   }
 }

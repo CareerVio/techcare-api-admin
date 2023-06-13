@@ -42,6 +42,7 @@ export default factories.createCoreController('api::appointment.appointment' , (
         try {
             const { id } = ctx.state.user;
             const { searchCriteria } = JSON.parse(ctx.params.searchCriteria);
+            
 
             const { date } = searchCriteria
 
@@ -52,7 +53,9 @@ export default factories.createCoreController('api::appointment.appointment' , (
                 return await strapi.entityService.findMany('api::available-time.available-time', { filters });
             }
             const get_questionnaire = async () => {
+                console.log(id);
                 const [ questionnaire ] = await strapi.entityService.findMany('api::questionnaire.questionnaire', {
+                    
                     filters : { user : id },
                     populate : ['mostVisitHospital']
                 });
@@ -60,8 +63,8 @@ export default factories.createCoreController('api::appointment.appointment' , (
             };
             const questionnaire = await get_questionnaire();
 
-            const filters = questionnaire.mostVisitHospital.id ? {
-                medicalFacility : questionnaire.mostVisitHospital.id
+            const filters = questionnaire.mostVisitHospital ? {
+                medicalFacility : questionnaire.mostVisitHospital
             } : {};
 
             const doctors = await strapi.entityService.findMany('api::doctor.doctor' , { filters , populate : ['profileImage','medicalFacility'] });

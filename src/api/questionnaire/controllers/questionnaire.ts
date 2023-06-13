@@ -10,7 +10,8 @@ export default factories.createCoreController('api::questionnaire.questionnaire'
           const { id } = ctx.state.user;
           let [ data ] = await strapi.entityService.findMany('api::questionnaire.questionnaire', {
             filters : { user : id },
-            sort : { id : 'desc' }
+            sort : { id : 'desc' },
+            populate : ["mostVisitHospital", "preferredDoctor", "insuranceCompany"]
           });
           data.medicine = JSON.parse(data.medicine);
           ctx.body = data;

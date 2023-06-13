@@ -4,7 +4,7 @@
   "info": {
     "singularName": "purchase-order-detail",
     "pluralName": "purchase-order-details",
-    "displayName": "PurchaseOrderDetail"
+    "displayName": "28. Purchase Order Details"
   },
   "options": {
     "draftAndPublish": true

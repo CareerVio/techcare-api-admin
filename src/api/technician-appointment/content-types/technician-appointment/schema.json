@@ -4,7 +4,7 @@
   "info": {
     "singularName": "technician-appointment",
     "pluralName": "technician-appointments",
-    "displayName": "TechnicianAppointment"
+    "displayName": "33. Technician Appointment"
   },
   "options": {
     "draftAndPublish": true

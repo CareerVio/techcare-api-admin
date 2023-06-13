@@ -4,7 +4,7 @@
   "info": {
     "singularName": "purchase-order",
     "pluralName": "purchase-orders",
-    "displayName": "PurchaseOrder"
+    "displayName": "27. Purchase Order"
   },
   "options": {
     "draftAndPublish": true

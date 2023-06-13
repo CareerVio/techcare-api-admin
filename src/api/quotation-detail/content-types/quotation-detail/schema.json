@@ -4,7 +4,7 @@
   "info": {
     "singularName": "quotation-detail",
     "pluralName": "quotation-details",
-    "displayName": "QuotationDetail"
+    "displayName": "20. Quotation Details"
   },
   "options": {
     "draftAndPublish": true

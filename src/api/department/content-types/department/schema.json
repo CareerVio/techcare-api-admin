@@ -4,7 +4,7 @@
   "info": {
     "singularName": "department",
     "pluralName": "departments",
-    "displayName": "6. Department"
+    "displayName": "06. Department"
   },
   "options": {
     "draftAndPublish": false

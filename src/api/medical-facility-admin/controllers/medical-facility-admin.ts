@@ -12,14 +12,17 @@ export default {
       });
       
       ctx.body = { data : [] };
+
       
       //SELECT
       
       const fields = ['id'];
-      const populate = ['appointment'];
+      const populate = ['appointment','medicalFacility, treatment'];
       const sort = { id : 'desc'};
-      const treatmentRecords = await strapi.entityService.findMany('api::treatment-record.treatment-record',{ fields , populate , sort });
+      const treatmentRecords = await strapi.entityService.findMany('api::treatment-record.treatment-record',{ populate , sort });
 
+      console.log("HeyHey");
+      
       //LEFT JOIN
       const get_appointment = async (appointment_id : string) => {
         const populate = ['diseases','medicalFacility','user','doctor'];

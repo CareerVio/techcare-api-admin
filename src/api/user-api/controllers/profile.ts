@@ -25,6 +25,26 @@ export default {
         ctx.body = err;
       }
     },
+    async getBannerInfo(ctx) {
+      try {
+        const { id } = ctx.state.user;
+        const response_user_permission = await strapi.entityService.findOne('plugin::users-permissions.user', id,{
+          fields : ['firstName']
+        });
+        
+        //left join
+        const [ response_questionnaire ] = await strapi.entityService.findMany('api::questionnaire.questionnaire',{
+          fields : ['careTakerFirstName'],
+          filters : { user : id }
+        });
+        console.log(response_questionnaire);
+        ctx.body = Object.assign(response_questionnaire , response_user_permission);
+
+      }catch (err){
+        console.log(err);
+        ctx.body = err;
+      }
+    },
     async uploadProfilePicture(ctx) {
       try {
         const { data } = ctx.request.body;

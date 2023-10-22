@@ -33,10 +33,13 @@ export default factories.createCoreController('api::device-data.device-data', ({
 
                 const { date , dateTo } = searchCriteria
                 
-                filters["dateTime"] = {
-                    $gte : !date ? '1900-01-01T00:00:00.000Z': date.slice(0,10) + 'T00:00:00.000Z',
-                    $lte : !dateTo ? '2199-12-31T00:00:00.000Z': dateTo.slice(0,10) + 'T23:59:59.999Z'
-                };
+                if(!!searchCriteria){
+                    filters["dateTime"] = {
+                        $gte : !date ? '1900-01-01T00:00:00.000Z': date.slice(0,10) + 'T00:00:00.000Z',
+                        $lte : !dateTo ? '2199-12-31T00:00:00.000Z': dateTo.slice(0,10) + 'T23:59:59.999Z'
+                    };
+                }
+                
 
             }
             if(id){

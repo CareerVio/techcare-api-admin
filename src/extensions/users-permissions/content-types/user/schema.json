@@ -107,13 +107,16 @@
       ]
     },
     "isEmailNotification": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "isPushNotification": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "isAcceptPDPA": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "language": {
       "type": "relation",
@@ -137,6 +140,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::medical-facility.medical-facility"
+    },
+    "firebaseNotificationToken": {
+      "type": "string"
     }
   }
 }

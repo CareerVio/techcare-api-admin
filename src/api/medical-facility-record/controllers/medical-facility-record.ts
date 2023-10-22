@@ -11,10 +11,9 @@ export default {
 
       //SELECT
       
-      const fields = ['id'];
       const populate = ['appointment'];
       const sort = { id : 'desc'};
-      const treatmentRecords = await strapi.entityService.findMany('api::treatment-record.treatment-record',{ fields , populate , sort });
+      const treatmentRecords = await strapi.entityService.findMany('api::treatment-record.treatment-record',{ populate , sort });
 
       //LEFT JOIN
       const get_appointment = async (appointment_id : string) => {
@@ -23,6 +22,9 @@ export default {
         return await strapi.entityService.findOne('api::appointment.appointment', appointment_id, { filters , populate });
       }
       for (let treatmentRecord of treatmentRecords){
+        if(!treatmentRecord.appointment.id)
+          continue
+        
         const appointment = await get_appointment(treatmentRecord.appointment.id);
         treatmentRecord.appointment = appointment;
       }
@@ -33,10 +35,12 @@ export default {
         return await strapi.entityService.findOne('api::medical-facility.medical-facility', medicalFacility_id, { populate });
       }
       for (let treatmentRecord of treatmentRecords){
-        if(!(!treatmentRecord.appointment)){
-          const medicalFacility = await get_medicalFacility(treatmentRecord.appointment.medicalFacility.id);
-          treatmentRecord.appointment.medicalFacility = medicalFacility;
-        }
+
+        if(!treatmentRecord.appointment.medicalFacility)
+          continue
+
+        const medicalFacility = await get_medicalFacility(treatmentRecord.appointment.medicalFacility.id);
+        treatmentRecord.appointment.medicalFacility = medicalFacility;
         
       }
       //WHERE

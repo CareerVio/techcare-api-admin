@@ -2,6 +2,10 @@
 import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::notification.notification' , ({ strapi }) => ({
+    async create(ctx){
+        super.create(ctx);
+        console.log("Create");
+    },
     async find(ctx){
         try {
             const { id } = ctx.state.user;

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "landing_page_promos",
+  "info": {
+    "singularName": "landing-page-promo",
+    "pluralName": "landing-page-promos",
+    "displayName": "40. Landing Page Promo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "promo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

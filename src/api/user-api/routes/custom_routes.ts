@@ -26,6 +26,11 @@ export default {
         handler: 'profile.getProfile',
       },
       {
+        method: 'GET',
+        path: '/banner-info', 
+        handler: 'profile.getBannerInfo',
+      },
+      {
         method: 'PUT',
         path: '/profile', 
         handler: 'profile.updateProfile',

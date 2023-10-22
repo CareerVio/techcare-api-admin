@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "after_sale_promos",
+  "info": {
+    "singularName": "after-sale-promo",
+    "pluralName": "after-sale-promos",
+    "displayName": "41. After Sale Promo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "promo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

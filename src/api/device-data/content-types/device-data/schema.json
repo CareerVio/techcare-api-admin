@@ -19,7 +19,7 @@
       "type": "string"
     },
     "stepCount": {
-      "type": "biginteger"
+      "type": "integer"
     },
     "temperature": {
       "type": "decimal"

@@ -59,6 +59,9 @@
     },
     "battery": {
       "type": "integer"
+    },
+    "verification_result": {
+      "type": "string"
     }
   }
 }

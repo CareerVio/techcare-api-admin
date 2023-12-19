@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_line_promos",
+  "info": {
+    "singularName": "product-line-promo",
+    "pluralName": "product-line-promos",
+    "displayName": "42. Product Line Promo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "promo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -20,6 +20,15 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "number": {
+      "type": "string"
+    },
+    "number_verification": {
+      "type": "string"
+    },
+    "retrieve_date": {
+      "type": "datetime"
     }
   }
 }

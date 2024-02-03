@@ -48,7 +48,7 @@
     "paymentTerm": {
       "type": "string"
     },
-    "deriveryDate": {
+    "deliveryDate": {
       "type": "date"
     },
     "invoiceDetails": {
@@ -72,9 +72,6 @@
     },
     "taxInvoiceNumber": {
       "type": "string"
-    },
-    "pricePerUnit": {
-      "type": "decimal"
     }
   }
 }

@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "supplier_invoices",
+  "info": {
+    "singularName": "supplier-invoice",
+    "pluralName": "supplier-invoices",
+    "displayName": "Supplier Send Invoice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dateTime": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "In Review",
+        "Payment Due",
+        "Payment Complete"
+      ]
+    },
+    "invoiceNumber": {
+      "type": "string"
+    },
+    "supplier": {
+      "type": "string"
+    },
+    "file": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

@@ -31,4 +31,14 @@ export default factories.createCoreController('api::payment.payment' , ({strapi}
           ctx.badRequest(err);
         }
     },
+    async find(ctx) {
+      try {
+          const data = await strapi.entityService.findMany('api::payment.payment', {
+              populate : ["paymentEvidence"]
+          });
+          ctx.body = { data };
+      } catch(err) {
+          ctx.body = err;
+      }
+  }
 }));

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "quotation",
     "pluralName": "quotations",
-    "displayName": "19. Quotation"
+    "displayName": "19. Quotation",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -43,7 +44,7 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "deriveryDate": {
+    "deliveryDate": {
       "type": "date"
     },
     "approvedOn": {
@@ -59,7 +60,7 @@
         "Approved"
       ]
     },
-    "quotationDetail": {
+    "quotationDetails": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::quotation-detail.quotation-detail"

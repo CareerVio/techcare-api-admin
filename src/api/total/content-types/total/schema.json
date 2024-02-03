@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "totals",
+  "info": {
+    "singularName": "total",
+    "pluralName": "totals",
+    "displayName": "Total",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "list": {
+      "type": "string"
+    },
+    "formTotal": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "income": {
+      "type": "decimal"
+    },
+    "expenses": {
+      "type": "decimal"
+    },
+    "remaining": {
+      "type": "decimal"
+    }
+  }
+}

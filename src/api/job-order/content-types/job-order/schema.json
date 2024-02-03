@@ -15,30 +15,51 @@
     "technicianName": {
       "type": "string"
     },
-    "startDate": {
+    "appointment": {
       "type": "date"
     },
-    "endDate": {
-      "type": "date"
+    "caliberate": {
+      "type": "enumeration",
+      "enum": [
+        "Success",
+        "Fail"
+      ]
     },
-    "customerName": {
+    "remark": {
+      "type": "text"
+    },
+    "repair": {
+      "type": "enumeration",
+      "enum": [
+        "Required",
+        "Not Required",
+        "Cannot Repair"
+      ]
+    },
+    "equipmentId": {
       "type": "string"
     },
-    "equipment": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::stock.stock"
+    "jobId": {
+      "type": "string"
     },
     "requestedPart": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::part.part"
-    },
-    "startTime": {
-      "type": "time"
-    },
-    "endTime": {
-      "type": "time"
+      "type": "enumeration",
+      "enum": [
+        "Hear Rate Sensor",
+        "Board Control",
+        "GSM Module",
+        "Head of Stick",
+        "Body",
+        "Basic Leg",
+        "Legs 3",
+        "Legs 4",
+        "Legs 3 Flat",
+        "Body Temperature Sensor",
+        "Li-ion Battery",
+        "Sim Card",
+        "Packaging Box.",
+        "USB -C Wire"
+      ]
     }
   }
 }

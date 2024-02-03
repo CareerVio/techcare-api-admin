@@ -12,11 +12,11 @@ export default {
         });
         console.log(response_user_permission);
         //left join
-        const response_questionnaire = await strapi.entityService.findMany('api::questionnaire.questionnaire',{
+        const [ response_questionnaire ] = await strapi.entityService.findMany('api::questionnaire.questionnaire',{
           fields : questionnaire_field,
           filters : { user : id }
-        })[0] || { weight : 0.0 , height : 0.0 , bloodGroup : "Other"} ;
-        
+        });
+        console.log(response_questionnaire);
 
         ctx.body = Object.assign(response_questionnaire , response_user_permission);
 

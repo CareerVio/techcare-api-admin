@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "supplier_receives",
+  "info": {
+    "singularName": "supplier-receive",
+    "pluralName": "supplier-receives",
+    "displayName": "Supplier Send Reciept",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dateTime": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Complete"
+      ]
+    },
+    "receive": {
+      "type": "string"
+    },
+    "supplier": {
+      "type": "string"
+    },
+    "file": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

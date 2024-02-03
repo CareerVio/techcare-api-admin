@@ -12,42 +12,50 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "equipmentId": {
+    "stockNumber": {
       "type": "string"
+    },
+    "warrantyPeriod": {
+      "type": "date"
+    },
+    "addByPerson": {
+      "type": "string"
+    },
+    "addDate": {
+      "type": "date"
+    },
+    "barCode": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "partType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::part.part"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "no": {
+      "type": "integer"
+    },
+    "costOfPart": {
+      "type": "decimal"
     },
     "type": {
       "type": "enumeration",
       "enum": [
         "Stick",
         "Defect",
-        "Return",
-        "Hear Rate Sensor",
-        "Board Control",
-        "GSM Module",
-        "Head of Stick",
-        "Body",
-        "Basic Leg",
-        "Legs 3",
-        "Legs 4",
-        "Legs 3 Flat",
-        "Legs 4 Flat",
-        "Body Temperature Sensor",
-        "Li-ion Battery",
-        "Sim Card",
-        "Packaging Box.",
-        "USB -C Wire"
+        "Part"
       ]
-    },
-    "partName": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::part.part"
-    },
-    "bomLists": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::bom-list.bom-list",
-      "mappedBy": "stock"
     }
   }
 }

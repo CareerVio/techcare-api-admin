@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_orders",
+  "info": {
+    "singularName": "service-order",
+    "pluralName": "service-orders",
+    "displayName": "Service-Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "caliberate": {
+      "type": "enumeration",
+      "enum": [
+        "Success",
+        "Fail"
+      ]
+    },
+    "technicianName": {
+      "type": "string"
+    },
+    "appointment": {
+      "type": "date"
+    },
+    "remark": {
+      "type": "text"
+    },
+    "repair": {
+      "type": "enumeration",
+      "enum": [
+        "Required",
+        "Cannot Repair",
+        "Not Required"
+      ]
+    },
+    "equipmentId": {
+      "type": "string"
+    },
+    "jobId": {
+      "type": "string"
+    },
+    "requestedPart": {
+      "type": "enumeration",
+      "enum": [
+        "Hear Rate Sensor",
+        "Board Control",
+        "GSM Module",
+        "Head of Stick",
+        "Body",
+        "Basic Leg",
+        "Legs 3",
+        "Legs 4",
+        "Legs 3 Flat",
+        "Body Temperature Sensor",
+        "Li-ion Battery",
+        "Sim Card",
+        "Packaging Box.",
+        "USB -C Wire"
+      ]
+    }
+  }
+}

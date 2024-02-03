@@ -30,7 +30,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::purchase-order.purchase-order",
-      "inversedBy": "purchaseOrderDetail"
+      "inversedBy": "purchaseOrderDetails"
     }
   }
 }

@@ -4,30 +4,33 @@
   "info": {
     "singularName": "supplier",
     "pluralName": "suppliers",
-    "displayName": "29. Supplier"
+    "displayName": "29. Supplier",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "note": {
-      "type": "text"
+    "companyName": {
+      "type": "string"
     },
-    "quotation": {
+    "taxId": {
+      "type": "string"
+    },
+    "kycFile": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
-    "admin": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+    "supplierId": {
+      "type": "string"
     }
   }
 }

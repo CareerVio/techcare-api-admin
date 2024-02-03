@@ -18,8 +18,8 @@
     "price": {
       "type": "decimal"
     },
-    "dateTime": {
-      "type": "datetime"
+    "date": {
+      "type": "date"
     },
     "status": {
       "type": "enumeration",
@@ -33,15 +33,16 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "file": {
+    "refer": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "note": {
       "type": "text"

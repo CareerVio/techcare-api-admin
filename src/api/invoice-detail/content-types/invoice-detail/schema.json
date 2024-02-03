@@ -35,6 +35,9 @@
       "relation": "manyToOne",
       "target": "api::invoice.invoice",
       "inversedBy": "invoiceDetails"
+    },
+    "pricePerUnit": {
+      "type": "decimal"
     }
   }
 }

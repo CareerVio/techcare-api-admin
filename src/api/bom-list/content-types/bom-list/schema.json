@@ -4,37 +4,31 @@
   "info": {
     "singularName": "bom-list",
     "pluralName": "bom-lists",
-    "displayName": "31. Bom-List"
+    "displayName": "31. Bom-List",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "partName": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::part.part"
+    "remark": {
+      "type": "text"
     },
-    "partNumber": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::stock.stock"
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Replace"
+      ]
     },
-    "pricePerUnit": {
-      "type": "decimal"
+    "date": {
+      "type": "datetime"
     },
-    "quantity": {
+    "category": {
+      "type": "string"
+    },
+    "no": {
       "type": "integer"
-    },
-    "amount": {
-      "type": "decimal"
-    },
-    "stock": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::stock.stock",
-      "inversedBy": "bomLists"
     }
   }
 }

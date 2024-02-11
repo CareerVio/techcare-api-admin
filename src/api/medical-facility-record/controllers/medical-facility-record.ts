@@ -6,6 +6,7 @@ export default {
   async getMedicalFacilities(ctx) {
     try {
       const { id } = ctx.state.user;
+      const medicalFacilitiesIds = [];
 
       ctx.body = { data : [] };
 
@@ -17,16 +18,19 @@ export default {
 
       //LEFT JOIN
       const get_appointment = async (appointment_id : string) => {
-        const populate = ['diseases','medicalFacility'];
-        const filters = {user : id};
-        return await strapi.entityService.findOne('api::appointment.appointment', appointment_id, { filters , populate });
+        const populate = ['diseases','medicalFacility','user'];
+        return await strapi.entityService.findOne('api::appointment.appointment', appointment_id, { populate });
       }
       for (let treatmentRecord of treatmentRecords){
         if(!treatmentRecord.appointment.id)
           continue
         
         const appointment = await get_appointment(treatmentRecord.appointment.id);
-        treatmentRecord.appointment = appointment;
+        if(appointment.user.id != id){
+          treatmentRecord.appointment = null;
+        }else{
+          treatmentRecord.appointment = appointment;
+        }
       }
 
       //LEFT JOIN 
@@ -35,21 +39,23 @@ export default {
         return await strapi.entityService.findOne('api::medical-facility.medical-facility', medicalFacility_id, { populate });
       }
       for (let treatmentRecord of treatmentRecords){
-
+        if(!treatmentRecord.appointment)
+          continue;
         if(!treatmentRecord.appointment.medicalFacility)
-          continue
+          continue;
+        if(medicalFacilitiesIds.includes(treatmentRecord.appointment.medicalFacility.id))
+          continue;
 
         const medicalFacility = await get_medicalFacility(treatmentRecord.appointment.medicalFacility.id);
-        treatmentRecord.appointment.medicalFacility = medicalFacility;
+        medicalFacilitiesIds.push(treatmentRecord.appointment.medicalFacility.id);
+
+        // STORE DATA
+        if(medicalFacility){
+          ctx.body.data.push(medicalFacility);
+        }
         
       }
-      //WHERE
       
-      for (let treatmentRecord of treatmentRecords){
-        if(!(!treatmentRecord.appointment.medicalFacility) && !(treatmentRecord.appointment.medicalFacility in ctx.body.data)){
-          ctx.body.data.push(treatmentRecord.appointment.medicalFacility);
-        }
-      }
     } catch (err) {
       return ctx.badRequest(err);
     }
@@ -58,6 +64,7 @@ export default {
     try {
       const { medicalFacility_id } = ctx.params;
       const { id } = ctx.state.user;
+      const treatmentRecordIds = [];
 
       ctx.body = { data : [] };
       
@@ -70,7 +77,7 @@ export default {
 
       //LEFT JOIN
       const get_appointment = async (appointment_id : string) => {
-        const populate = ['diseases','medicalFacility'];
+        const populate = ['diseases','medicalFacility','user'];
         const filters = {
           user : id , 
           medicalFacility : medicalFacility_id
@@ -80,14 +87,21 @@ export default {
 
       for (let treatmentRecord of treatmentRecords){
         const appointment = await get_appointment(treatmentRecord.appointment.id);
-        treatmentRecord.appointment = appointment;
+        if(appointment.user.id != id){
+          treatmentRecord.appointment = null;
+        }else{
+          treatmentRecord.appointment = appointment;
+        }
+        
       }
 
       //WHERE
       
       for (let treatmentRecord of treatmentRecords){
-        if(!(!treatmentRecord.appointment) && !(treatmentRecord in ctx.body.data)){
+        // THERE HAVE AN APPOINTMENT DATA AND DISTINCT
+        if(!(!treatmentRecord.appointment) && !(treatmentRecordIds.includes(treatmentRecord.id))){
           ctx.body.data.push(treatmentRecord);
+          treatmentRecordIds.push(treatmentRecord.id);
         }
       }
 

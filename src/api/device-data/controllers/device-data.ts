@@ -57,6 +57,48 @@ export default factories.createCoreController('api::device-data.device-data', ({
             return ctx.badRequest(err);
         }
     },
+    async getDeviceData(ctx){
+        try {
+            const { id } = ctx.state.user ? ctx.state.user : Object.create(null);
+            const { fetchOption } = ctx.params;
+            
+            if(fetchOption == "long-polling"){
+                await strapi.service('api::long-polling.long-polling').subscribe( id , '/device-datas/:searchCriteria');
+            }
+
+            //INNTER JOIN
+
+            const get_device_filters = async () => {
+                const filters = { user : id };
+                const fields = ['id'];
+                const device_filters:Array<number> = [];
+                const responses = await strapi.entityService.findMany('api::device.device',{ filters , fields });
+                for(let response of responses){
+                    const device_id:number = response.id;
+                    device_filters.push(device_id);
+                }
+                return device_filters;
+            }
+            
+            //SELECT
+            const filters = {};
+            const sort = { dateTime : 'desc'};
+           
+            if(id){
+                filters["device"] = await get_device_filters();
+            }
+            
+            const populate = ['device'];
+            const [ device_data ] = await strapi.entityService.findMany('api::device-data.device-data' , { filters , populate , sort , limit:1 });
+            
+        
+            ctx.body = { data : device_data };
+            
+        } catch (err) {
+            console.log(err);
+            return ctx.badRequest(err);
+        }
+    },
     async create(ctx){
         try{
             const { data } = ctx.request.body;

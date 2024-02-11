@@ -9,7 +9,7 @@ export default {
         console.log('Inserted data', result);
         try {
             const receiptNumber = "TCS-Receipt-" + new Date().getFullYear() + "-" + result["id"].toString().padStart(6, '0');
-            await strapi.entityService.update('api::receipt.receipt',result["id"], { data: { receiptNumber , status : "OnProgress"} });
+            await strapi.entityService.update('api::receipt.receipt',result["id"], { data: { receiptNumber , status : "Waiting"} });
         } catch(err) {
             console.log(err);
         }

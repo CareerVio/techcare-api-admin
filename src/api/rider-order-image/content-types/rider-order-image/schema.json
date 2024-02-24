@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rider_order_images",
+  "info": {
+    "singularName": "rider-order-image",
+    "pluralName": "rider-order-images",
+    "displayName": "(Rider) Order Image"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order_image_id": {
+      "type": "uid"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "signature_image_url": {
+      "type": "string"
+    },
+    "rider_order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rider-order.rider-order",
+      "mappedBy": "rider_order_image"
+    }
+  }
+}

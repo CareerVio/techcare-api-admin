@@ -44,6 +44,24 @@
       "relation": "oneToMany",
       "target": "api::rider-user-authentcation.rider-user-authentcation",
       "mappedBy": "user_id"
+    },
+    "rider_emergency_supports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rider-emergency-support.rider-emergency-support",
+      "mappedBy": "rider_user"
+    },
+    "rider_order_assignments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rider-order-assignment.rider-order-assignment",
+      "mappedBy": "assigned_to"
+    },
+    "rider_orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rider-order.rider-order",
+      "mappedBy": "user_id"
     }
   }
 }

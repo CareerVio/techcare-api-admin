@@ -143,6 +143,12 @@
     },
     "firebaseNotificationToken": {
       "type": "string"
+    },
+    "mobile_user_1_user_profiles_management": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-profiles-management.user-profiles-management",
+      "mappedBy": "users_permissions_01_user"
     }
   }
 }

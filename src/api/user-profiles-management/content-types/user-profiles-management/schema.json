@@ -4,18 +4,25 @@
   "info": {
     "singularName": "user-profiles-management",
     "pluralName": "user-profiles-managements",
-    "displayName": "(Mobile user) 1.UserProfilesManagement"
+    "displayName": "(Mobile user) 1.UserProfilesManagement",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_01_user": {
+    "user_id": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "mobile_user_1_user_profiles_management"
+    },
+    "delivery_address": {
+      "type": "string"
+    },
+    "prescription_details": {
+      "type": "string"
     }
   }
 }

@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "(Mobile user) 7.Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order_id": {
+      "type": "uid"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "mobile_user_7_orders"
+    },
+    "phamacy_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pharmacy.pharmacy",
+      "mappedBy": "mobile_user_7_order"
+    },
+    "status": {
+      "type": "string"
+    },
+    "total_amount": {
+      "type": "integer"
+    },
+    "total_price": {
+      "type": "decimal"
+    },
+    "pickup_or_delivery": {
+      "type": "string"
+    },
+    "scheduled_time": {
+      "type": "datetime"
+    },
+    "create_at": {
+      "type": "datetime"
+    }
+  }
+}

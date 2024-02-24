@@ -148,7 +148,31 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::user-profiles-management.user-profiles-management",
-      "mappedBy": "users_permissions_01_user"
+      "mappedBy": "user_id"
+    },
+    "mobile_user_3_prescriptions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::prescription.prescription",
+      "mappedBy": "user_id"
+    },
+    "cart_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cart.cart",
+      "mappedBy": "user_id"
+    },
+    "auth_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-authentication.user-authentication",
+      "mappedBy": "user_id"
+    },
+    "mobile_user_7_orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "user_id"
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pharmacy",
     "pluralName": "pharmacies",
-    "displayName": "(Mobile user) 6.Pharmacy"
+    "displayName": "(Mobile user) 06.Pharmacy",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -41,11 +42,11 @@
       "target": "api::medicine.medicine",
       "mappedBy": "mobile_user_6_pharmacy"
     },
-    "mobile_user_7_order": {
+    "mobile_user_7_orders": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::order.order",
-      "inversedBy": "phamacy_id"
+      "mappedBy": "phamacy_id"
     }
   }
 }

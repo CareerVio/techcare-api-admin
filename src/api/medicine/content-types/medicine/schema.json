@@ -4,7 +4,8 @@
   "info": {
     "singularName": "medicine",
     "pluralName": "medicines",
-    "displayName": "(Mobile user) 4.Medicine"
+    "displayName": "(Mobile user) 04.Medicine",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_offers",
+  "info": {
+    "singularName": "user-offer",
+    "pluralName": "user-offers",
+    "displayName": "(Mobile user) 16.UserOffer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_offer_id": {
+      "type": "uid"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "mobile_user_16_user_offers"
+    },
+    "offer_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::offers-promotion.offers-promotion",
+      "inversedBy": "mobile_user_16_user_offers"
+    },
+    "redeemed": {
+      "type": "boolean"
+    },
+    "redeemed_at": {
+      "type": "datetime"
+    }
+  }
+}

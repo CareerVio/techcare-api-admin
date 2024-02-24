@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "user_authentications",
+  "collectionName": "mobile_user_notifications",
   "info": {
-    "singularName": "user-authentication",
-    "pluralName": "user-authentications",
-    "displayName": "(Mobile user) 02.UserAuthentication",
+    "singularName": "mobile-user-notification",
+    "pluralName": "mobile-user-notifications",
+    "displayName": "(Mobile user) 17.Notification",
     "description": ""
   },
   "options": {
@@ -12,22 +12,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "auth_id": {
+    "notification_id": {
       "type": "uid"
     },
     "user_id": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "auth_id"
+      "inversedBy": "mobile_user_15_notifications"
     },
-    "device_id": {
+    "message": {
       "type": "string"
     },
-    "token": {
-      "type": "uid"
-    },
-    "expiry": {
+    "timestamp": {
       "type": "datetime"
     }
   }

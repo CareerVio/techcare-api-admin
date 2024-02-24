@@ -4,7 +4,8 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "(Mobile user) 7.Order"
+    "displayName": "(Mobile user) 07.Order",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,9 +23,9 @@
     },
     "phamacy_id": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::pharmacy.pharmacy",
-      "mappedBy": "mobile_user_7_order"
+      "inversedBy": "mobile_user_7_orders"
     },
     "status": {
       "type": "string"
@@ -43,6 +44,12 @@
     },
     "create_at": {
       "type": "datetime"
+    },
+    "mobile_user_8_order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "order_id"
     }
   }
 }

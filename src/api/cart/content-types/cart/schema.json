@@ -4,7 +4,7 @@
   "info": {
     "singularName": "cart",
     "pluralName": "carts",
-    "displayName": "(Mobile user) 5.Cart",
+    "displayName": "(Mobile user) 05.Cart",
     "description": ""
   },
   "options": {
@@ -32,6 +32,12 @@
     },
     "total_price": {
       "type": "decimal"
+    },
+    "mobile_user_8_order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "cart_id"
     }
   }
 }

@@ -173,6 +173,36 @@
       "relation": "oneToMany",
       "target": "api::order.order",
       "mappedBy": "user_id"
+    },
+    "mobile_user_9_pickup_drop_requests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pickup-drop-request.pickup-drop-request",
+      "mappedBy": "user_id"
+    },
+    "mobile_user_12_user_membership": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-membership.user-membership",
+      "mappedBy": "user_id"
+    },
+    "mobile_user_14_user_rewards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-reward.user-reward",
+      "mappedBy": "user_id"
+    },
+    "mobile_user_15_notifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mobile-user-notification.mobile-user-notification",
+      "mappedBy": "user_id"
+    },
+    "mobile_user_16_user_offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-offer.user-offer",
+      "mappedBy": "user_id"
     }
   }
 }

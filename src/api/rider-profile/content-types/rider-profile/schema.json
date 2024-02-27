@@ -4,7 +4,8 @@
   "info": {
     "singularName": "rider-profile",
     "pluralName": "rider-profiles",
-    "displayName": "(Rider) Profile"
+    "displayName": "(Rider) Profile",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,7 +18,8 @@
     "user_id": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::rider-user.rider-user"
+      "target": "api::rider-user.rider-user",
+      "mappedBy": "rider_profile"
     },
     "delivery_address": {
       "type": "string"

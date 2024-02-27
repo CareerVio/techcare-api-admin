@@ -15,12 +15,6 @@
     "auth_id": {
       "type": "uid"
     },
-    "user_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::rider-user.rider-user",
-      "inversedBy": "user_authentcations"
-    },
     "device_id": {
       "type": "string"
     },
@@ -29,6 +23,12 @@
     },
     "expiry": {
       "type": "datetime"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rider-user.rider-user",
+      "inversedBy": "user_authentication"
     }
   }
 }

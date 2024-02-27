@@ -39,7 +39,7 @@
     "earning": {
       "type": "decimal"
     },
-    "user_authentcations": {
+    "user_authentication": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::rider-user-authentcation.rider-user-authentcation",
@@ -62,6 +62,12 @@
       "relation": "oneToMany",
       "target": "api::rider-order.rider-order",
       "mappedBy": "user_id"
+    },
+    "rider_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rider-profile.rider-profile",
+      "inversedBy": "user_id"
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "(Mobile user) 7.Order"
+    "displayName": "(Mobile user) 07.Order",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,20 +15,23 @@
     "order_id": {
       "type": "uid"
     },
-    "users_permissions_01_user": {
+    "user_id": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "mobile_user_7_order"
+      "inversedBy": "mobile_user_7_orders"
     },
-    "mobile_user_6_pharmacie": {
+    "phamacy_id": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::pharmacie.pharmacie",
-      "inversedBy": "mobile_user_7_order"
+      "relation": "manyToOne",
+      "target": "api::pharmacy.pharmacy",
+      "inversedBy": "mobile_user_7_orders"
     },
     "status": {
       "type": "string"
+    },
+    "total_amount": {
+      "type": "integer"
     },
     "total_price": {
       "type": "decimal"
@@ -41,11 +45,11 @@
     "create_at": {
       "type": "datetime"
     },
-    "mobile_user_8_order_item": {
+    "mobile_user_8_order_items": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::order-item.order-item",
-      "mappedBy": "mobile_user_7_order"
+      "mappedBy": "order_id"
     }
   }
 }

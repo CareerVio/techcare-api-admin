@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mobile_user_notifications",
+  "info": {
+    "singularName": "mobile-user-notification",
+    "pluralName": "mobile-user-notifications",
+    "displayName": "(Mobile user) 17.Notification",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "notification_id": {
+      "type": "uid"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "mobile_user_15_notifications"
+    },
+    "message": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "datetime"
+    }
+  }
+}

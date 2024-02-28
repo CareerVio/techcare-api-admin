@@ -4,7 +4,7 @@
   "info": {
     "singularName": "rider-user",
     "pluralName": "rider-users",
-    "displayName": "( Rider ) User",
+    "displayName": "(Rider) User",
     "description": ""
   },
   "options": {
@@ -37,7 +37,37 @@
       "type": "string"
     },
     "earning": {
-      "type": "string"
+      "type": "decimal"
+    },
+    "user_authentication": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rider-user-authentcation.rider-user-authentcation",
+      "mappedBy": "user_id"
+    },
+    "rider_emergency_supports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rider-emergency-support.rider-emergency-support",
+      "mappedBy": "rider_user"
+    },
+    "rider_order_assignments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rider-order-assignment.rider-order-assignment",
+      "mappedBy": "assigned_to"
+    },
+    "rider_orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rider-order.rider-order",
+      "mappedBy": "user_id"
+    },
+    "rider_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rider-profile.rider-profile",
+      "inversedBy": "user_id"
     }
   }
 }

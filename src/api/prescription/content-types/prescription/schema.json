@@ -4,7 +4,7 @@
   "info": {
     "singularName": "prescription",
     "pluralName": "prescriptions",
-    "displayName": "(Mobile user) 3.Prescription",
+    "displayName": "(Mobile user) 03.Prescription",
     "description": ""
   },
   "options": {
@@ -12,11 +12,23 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_01_user": {
+    "user_id": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "tae_prescription"
+      "inversedBy": "mobile_user_3_prescriptions"
+    },
+    "prescription_image_url": {
+      "type": "string"
+    },
+    "upload_at": {
+      "type": "datetime"
+    },
+    "checked": {
+      "type": "boolean"
+    },
+    "prescription_id": {
+      "type": "uid"
     }
   }
 }

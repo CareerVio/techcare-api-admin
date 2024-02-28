@@ -4,14 +4,15 @@
   "info": {
     "singularName": "medicine",
     "pluralName": "medicines",
-    "displayName": "(Mobile user) 4.Medicine"
+    "displayName": "(Mobile user) 04.Medicine",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "med_id": {
+    "medicine_id": {
       "type": "uid"
     },
     "name": {
@@ -26,17 +27,17 @@
     "description": {
       "type": "string"
     },
-    "mobile_user_5_cart": {
+    "mobile_user_6_pharmacy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pharmacy.pharmacy",
+      "inversedBy": "med_stock"
+    },
+    "med_id": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::cart.cart",
-      "inversedBy": "mobile_user_4_medicines"
-    },
-    "mobile_user_6_pharmacie": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::pharmacie.pharmacie",
-      "inversedBy": "mobile_user_4_medicines"
+      "inversedBy": "cart_stock"
     }
   }
 }

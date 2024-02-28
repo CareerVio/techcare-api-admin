@@ -4,36 +4,40 @@
   "info": {
     "singularName": "cart",
     "pluralName": "carts",
-    "displayName": "(Mobile user) 5.Cart"
+    "displayName": "(Mobile user) 05.Cart",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_01_user": {
+    "cart_id": {
+      "type": "uid"
+    },
+    "user_id": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "mobile_user_5_carts"
+      "inversedBy": "cart_id"
     },
-    "mobile_user_4_medicines": {
+    "cart_stock": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::medicine.medicine",
-      "mappedBy": "mobile_user_5_cart"
+      "mappedBy": "med_id"
     },
     "quantity": {
       "type": "integer"
     },
     "total_price": {
-      "type": "integer"
+      "type": "decimal"
     },
-    "mobile_user_8_order_item": {
+    "mobile_user_8_order_items": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::order-item.order-item",
-      "mappedBy": "mobile_user_5_cart"
+      "mappedBy": "cart_id"
     }
   }
 }

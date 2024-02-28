@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rider_order_items",
+  "info": {
+    "singularName": "rider-order-item",
+    "pluralName": "rider-order-items",
+    "displayName": "(Rider) Order Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "item_id": {
+      "type": "uid"
+    },
+    "rider_order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rider-order.rider-order",
+      "inversedBy": "rider_order_items"
+    },
+    "product_name": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "product_description": {
+      "type": "text"
+    },
+    "product_image_url": {
+      "type": "string"
+    }
+  }
+}

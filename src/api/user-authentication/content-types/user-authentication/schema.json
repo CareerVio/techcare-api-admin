@@ -4,7 +4,7 @@
   "info": {
     "singularName": "user-authentication",
     "pluralName": "user-authentications",
-    "displayName": "(Mobile user) 2.UserAuthentication",
+    "displayName": "(Mobile user) 02.UserAuthentication",
     "description": ""
   },
   "options": {
@@ -12,21 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_01_user": {
+    "auth_id": {
+      "type": "uid"
+    },
+    "user_id": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "user_authentication"
-    },
-    "auth_id": {
-      "type": "string"
+      "inversedBy": "auth_id"
     },
     "device_id": {
       "type": "string"
     },
     "token": {
-      "type": "uid",
-      "targetField": "auth_id"
+      "type": "uid"
     },
     "expiry": {
       "type": "datetime"

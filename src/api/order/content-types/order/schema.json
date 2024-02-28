@@ -15,12 +15,6 @@
     "order_id": {
       "type": "uid"
     },
-    "user_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "mobile_user_7_orders"
-    },
     "phamacy_id": {
       "type": "relation",
       "relation": "manyToOne",

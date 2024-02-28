@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rider_conversation_histories",
+  "info": {
+    "singularName": "rider-conversation-history",
+    "pluralName": "rider-conversation-histories",
+    "displayName": "(Rider) Conversation History",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "conversation_id": {
+      "type": "uid"
+    },
+    "first_user_id": {
+      "type": "string"
+    },
+    "second_user_id": {
+      "type": "string"
+    },
+    "created_date": {
+      "type": "datetime"
+    },
+    "messages_text": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::message.message"
+    }
+  }
+}

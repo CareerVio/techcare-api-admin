@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rider_profiles",
+  "info": {
+    "singularName": "rider-profile",
+    "pluralName": "rider-profiles",
+    "displayName": "(Rider) Profile",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "profile_id": {
+      "type": "uid"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rider-user.rider-user",
+      "mappedBy": "rider_profile"
+    },
+    "delivery_address": {
+      "type": "string"
+    },
+    "Schedule": {
+      "type": "enumeration",
+      "enum": [
+        "Available",
+        "On Break",
+        "Not Available"
+      ]
+    }
+  }
+}

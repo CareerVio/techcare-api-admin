@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rider_order_histories",
+  "info": {
+    "singularName": "rider-order-history",
+    "pluralName": "rider-order-histories",
+    "displayName": "(Rider) Order History",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "history_id": {
+      "type": "uid"
+    },
+    "order_ids": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rider-order.rider-order"
+    },
+    "delivery_time": {
+      "type": "datetime"
+    },
+    "recipient_name": {
+      "type": "string"
+    }
+  }
+}

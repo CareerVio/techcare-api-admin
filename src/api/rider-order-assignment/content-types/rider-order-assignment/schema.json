@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rider_order_assignments",
+  "info": {
+    "singularName": "rider-order-assignment",
+    "pluralName": "rider-order-assignments",
+    "displayName": "(Rider) Order Assignment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "assignment_id": {
+      "type": "uid"
+    },
+    "rider_order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rider-order.rider-order",
+      "inversedBy": "rider_order_assignment"
+    },
+    "assigned_to": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rider-user.rider-user",
+      "inversedBy": "rider_order_assignments"
+    },
+    "assigned_at": {
+      "type": "datetime"
+    },
+    "pickup_or_delivery": {
+      "type": "enumeration",
+      "enum": [
+        "pickup",
+        "delivery"
+      ]
+    },
+    "pickup_address": {
+      "type": "string"
+    },
+    "destination_address": {
+      "type": "string"
+    },
+    "payment": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_items",
+  "info": {
+    "singularName": "order-item",
+    "pluralName": "order-items",
+    "displayName": "(Mobile user) 8.OrderItem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mobile_user_7_order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "inversedBy": "mobile_user_8_order_item"
+    },
+    "mobile_user_5_cart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cart.cart",
+      "inversedBy": "mobile_user_8_order_item"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "total_price": {
+      "type": "decimal"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_profiles_managements",
+  "info": {
+    "singularName": "user-profiles-management",
+    "pluralName": "user-profiles-managements",
+    "displayName": "(Mobile user) 1.UserProfilesManagement",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_01_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_profiles_management"
+    },
+    "delivery_address": {
+      "type": "string"
+    },
+    "prescription_details": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "(Mobile user) 7.Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order_id": {
+      "type": "uid"
+    },
+    "users_permissions_01_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "mobile_user_7_order"
+    },
+    "mobile_user_6_pharmacie": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pharmacie.pharmacie",
+      "inversedBy": "mobile_user_7_order"
+    },
+    "status": {
+      "type": "string"
+    },
+    "total_price": {
+      "type": "decimal"
+    },
+    "pickup_or_delivery": {
+      "type": "string"
+    },
+    "scheduled_time": {
+      "type": "datetime"
+    },
+    "create_at": {
+      "type": "datetime"
+    },
+    "mobile_user_8_order_item": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order-item.order-item",
+      "mappedBy": "mobile_user_7_order"
+    }
+  }
+}

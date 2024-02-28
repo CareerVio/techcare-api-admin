@@ -146,6 +146,42 @@
     },
     "firebaseWebNotificationToken": {
       "type": "string"
+    },
+    "user_profiles_management": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-profiles-management.user-profiles-management",
+      "mappedBy": "users_permissions_01_user"
+    },
+    "user_authentication": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-authentication.user-authentication",
+      "mappedBy": "users_permissions_01_user"
+    },
+    "tae_prescription": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::prescription.prescription",
+      "mappedBy": "users_permissions_01_user"
+    },
+    "mobile_user_5_carts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cart.cart",
+      "mappedBy": "users_permissions_01_user"
+    },
+    "mobile_user_7_order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "mappedBy": "users_permissions_01_user"
+    },
+    "mobile_user_9_pickup_drop_requests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pickup-drop-request.pickup-drop-request",
+      "mappedBy": "users_permissions_01_user"
     }
   }
 }

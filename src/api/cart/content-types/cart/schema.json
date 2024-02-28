@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carts",
+  "info": {
+    "singularName": "cart",
+    "pluralName": "carts",
+    "displayName": "(Mobile user) 5.Cart"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_01_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "mobile_user_5_carts"
+    },
+    "mobile_user_4_medicines": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::medicine.medicine",
+      "mappedBy": "mobile_user_5_cart"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "total_price": {
+      "type": "integer"
+    },
+    "mobile_user_8_order_item": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order-item.order-item",
+      "mappedBy": "mobile_user_5_cart"
+    }
+  }
+}

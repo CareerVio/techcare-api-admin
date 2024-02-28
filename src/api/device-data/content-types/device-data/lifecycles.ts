@@ -35,8 +35,8 @@ export default {
     */
     async afterCreate(result) {
         //Fix from Strapi api response structure
-        result = result.result;
-        deviceLocationVerify(result);
+        // result = result.result;
+        // deviceLocationVerify(result);
        
     },
 };

@@ -1,4 +1,4 @@
-export default  {
+export default ({ env }) => ({
   // ...
   'strapi-plugin-fcm': {
     enabled: true,
@@ -6,4 +6,4 @@ export default  {
   },
   'chartbrew': true
   // ...
-}
+})

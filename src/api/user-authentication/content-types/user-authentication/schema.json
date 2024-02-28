@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_authentications",
+  "info": {
+    "singularName": "user-authentication",
+    "pluralName": "user-authentications",
+    "displayName": "(Mobile user) 2.UserAuthentication",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_01_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_authentication"
+    },
+    "auth_id": {
+      "type": "string"
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "token": {
+      "type": "uid",
+      "targetField": "auth_id"
+    },
+    "expiry": {
+      "type": "datetime"
+    }
+  }
+}

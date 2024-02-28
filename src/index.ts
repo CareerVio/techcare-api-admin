@@ -1,4 +1,4 @@
-'user strict'
+'use strict'
 import * as admin from 'firebase-admin';
 
 export default {
@@ -18,48 +18,7 @@ export default {
    * run jobs, or perform some special logic.
    */
   bootstrap({ strapi }) {
-    const serviceAccount = require("./tech-care-system-firebase-adminsdk-ehfkj-45dc60e58d.json");
-    let firebase = admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount)
-    });
-    //Make Firebase available everywhere
-    strapi.firebase = firebase;
-    let messaging = firebase.messaging();
-
-    let sendNotification = (fcm, data) => {
-      let message = {
-        ...data,
-        token: fcm
-      }
-      messaging.send(message).then((res) => {
-        console.log(res);
-      }).catch((error) => {
-        console.log(error);
-      });
-    }
-    let sendNotificationToTopic = (topic_name, data) => {
-      let message = {
-        ...data,
-        topic: topic_name
-      }
-      messaging.send(message).then((res) => {
-        console.log(res);
-      }).catch((error) => {
-        console.log(error);
-      });
-    }
-    let subscribeTopic = (fcm, topic_name) => {
-      messaging.subscribeToTopic(fcm, topic_name).then((res) => {
-        console.log(res);
-      }).catch((error) => {
-        console.log(error);
-      });
-    }
-    //Make the notification functions available everywhere
-    strapi.notification = {
-      subscribeTopic,
-      sendNotificationToTopic,
-      sendNotification
-    }
-  },
+    strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").initNotifications();
+  }
+    
 };

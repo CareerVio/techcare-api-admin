@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pharmacies",
+  "info": {
+    "singularName": "pharmacy",
+    "pluralName": "pharmacies",
+    "displayName": "(Mobile user) 06.Pharmacy",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "phamacy_id": {
+      "type": "uid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "opening_hour": {
+      "type": "string"
+    },
+    "longtitude": {
+      "type": "float"
+    },
+    "latitude": {
+      "type": "float"
+    },
+    "available_services": {
+      "type": "string"
+    },
+    "med_stock": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::medicine.medicine",
+      "mappedBy": "mobile_user_6_pharmacy"
+    },
+    "mobile_user_7_orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "phamacy_id"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medicines",
+  "info": {
+    "singularName": "medicine",
+    "pluralName": "medicines",
+    "displayName": "(Mobile user) 04.Medicine",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "medicine_id": {
+      "type": "uid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "dosage": {
+      "type": "string"
+    },
+    "side_effect": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "mobile_user_6_pharmacy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pharmacy.pharmacy",
+      "inversedBy": "med_stock"
+    },
+    "med_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::cart.cart",
+      "inversedBy": "cart_stock"
+    }
+  }
+}

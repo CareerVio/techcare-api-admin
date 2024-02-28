@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offers_promotions",
+  "info": {
+    "singularName": "offers-promotion",
+    "pluralName": "offers-promotions",
+    "displayName": "(Mobile user) 15.OffersPromotion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "offer_id": {
+      "type": "uid"
+    },
+    "offer_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "datetime"
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "mobile_user_16_user_offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-offer.user-offer",
+      "mappedBy": "offer_id"
+    }
+  }
+}

@@ -15,18 +15,6 @@
     "assignment_id": {
       "type": "uid"
     },
-    "rider_order": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::rider-order.rider-order",
-      "inversedBy": "rider_order_assignment"
-    },
-    "assigned_to": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::rider-user.rider-user",
-      "inversedBy": "rider_order_assignments"
-    },
     "assigned_at": {
       "type": "datetime"
     },

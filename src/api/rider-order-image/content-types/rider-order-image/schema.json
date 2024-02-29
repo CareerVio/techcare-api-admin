@@ -19,12 +19,6 @@
     },
     "signature_image_url": {
       "type": "string"
-    },
-    "rider_order": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::rider-order.rider-order",
-      "mappedBy": "rider_order_image"
     }
   }
 }

@@ -18,8 +18,7 @@
     "user_id": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::rider-user.rider-user",
-      "mappedBy": "rider_profile"
+      "target": "api::rider-user.rider-user"
     },
     "delivery_address": {
       "type": "string"

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "rider-emergency-support",
     "pluralName": "rider-emergency-supports",
-    "displayName": "(Rider) Emergency Support"
+    "displayName": "(Rider) Emergency Support",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,12 +14,6 @@
   "attributes": {
     "support_id": {
       "type": "uid"
-    },
-    "rider_user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::rider-user.rider-user",
-      "inversedBy": "rider_emergency_supports"
     },
     "issue_description": {
       "type": "text"

@@ -15,18 +15,6 @@
     "cart_id": {
       "type": "uid"
     },
-    "user_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "cart_id"
-    },
-    "cart_stock": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::medicine.medicine",
-      "mappedBy": "med_id"
-    },
     "quantity": {
       "type": "integer"
     },
@@ -36,8 +24,7 @@
     "mobile_user_8_order_items": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::order-item.order-item",
-      "mappedBy": "cart_id"
+      "target": "api::order-item.order-item"
     }
   }
 }

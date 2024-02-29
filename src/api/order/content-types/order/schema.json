@@ -15,18 +15,6 @@
     "order_id": {
       "type": "uid"
     },
-    "user_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "mobile_user_7_orders"
-    },
-    "phamacy_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::pharmacy.pharmacy",
-      "inversedBy": "mobile_user_7_orders"
-    },
     "status": {
       "type": "string"
     },
@@ -45,11 +33,10 @@
     "create_at": {
       "type": "datetime"
     },
-    "mobile_user_8_order_items": {
+    "order_items": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::order-item.order-item",
-      "mappedBy": "order_id"
+      "target": "api::order-item.order-item"
     }
   }
 }

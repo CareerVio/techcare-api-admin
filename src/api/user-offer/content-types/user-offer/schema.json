@@ -4,7 +4,8 @@
   "info": {
     "singularName": "user-offer",
     "pluralName": "user-offers",
-    "displayName": "(Mobile user) 16.UserOffer"
+    "displayName": "(Mobile user) 16.UserOffer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,23 +15,21 @@
     "user_offer_id": {
       "type": "uid"
     },
-    "user_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "mobile_user_16_user_offers"
-    },
-    "offer_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::offers-promotion.offers-promotion",
-      "inversedBy": "mobile_user_16_user_offers"
-    },
     "redeemed": {
       "type": "boolean"
     },
     "redeemed_at": {
       "type": "datetime"
+    },
+    "offers_promotions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offers-promotion.offers-promotion"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

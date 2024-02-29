@@ -15,8 +15,7 @@
     "user_id": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "mobile_user_1_user_profiles_management"
+      "target": "plugin::users-permissions.user"
     },
     "delivery_address": {
       "type": "string"

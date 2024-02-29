@@ -12,18 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "order_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::order.order",
-      "inversedBy": "mobile_user_8_order_items"
-    },
-    "cart_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::cart.cart",
-      "inversedBy": "mobile_user_8_order_items"
-    },
     "quantity": {
       "type": "integer"
     },

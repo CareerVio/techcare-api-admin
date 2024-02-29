@@ -4,7 +4,8 @@
   "info": {
     "singularName": "reward",
     "pluralName": "rewards",
-    "displayName": "(Mobile user) 13.Reward"
+    "displayName": "(Mobile user) 13.Reward",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,12 +23,6 @@
     },
     "description": {
       "type": "string"
-    },
-    "mobile_user_14_user_rewards": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::user-reward.user-reward",
-      "mappedBy": "reward_id"
     }
   }
 }

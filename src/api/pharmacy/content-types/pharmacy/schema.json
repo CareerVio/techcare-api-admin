@@ -39,14 +39,7 @@
     "med_stock": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::medicine.medicine",
-      "mappedBy": "mobile_user_6_pharmacy"
-    },
-    "mobile_user_7_orders": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::order.order",
-      "mappedBy": "phamacy_id"
+      "target": "api::medicine.medicine"
     }
   }
 }

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pick_drop_sevs",
+  "info": {
+    "singularName": "pick-drop-sev",
+    "pluralName": "pick-drop-sevs",
+    "displayName": "(Mobile user) 10.PickDropSev",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pick_drop_req": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pick-drop-req.pick-drop-req"
+    },
+    "pickup_status": {
+      "type": "boolean"
+    },
+    "drop_status": {
+      "type": "boolean"
+    },
+    "distance": {
+      "type": "decimal"
+    }
+  }
+}

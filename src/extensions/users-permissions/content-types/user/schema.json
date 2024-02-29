@@ -143,66 +143,6 @@
     },
     "firebaseNotificationToken": {
       "type": "string"
-    },
-    "mobile_user_1_user_profiles_management": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::user-profiles-management.user-profiles-management",
-      "mappedBy": "user_id"
-    },
-    "mobile_user_3_prescriptions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::prescription.prescription",
-      "mappedBy": "user_id"
-    },
-    "cart_id": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::cart.cart",
-      "mappedBy": "user_id"
-    },
-    "auth_id": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::user-authentication.user-authentication",
-      "mappedBy": "user_id"
-    },
-    "mobile_user_7_orders": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::order.order",
-      "mappedBy": "user_id"
-    },
-    "mobile_user_9_pickup_drop_requests": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::pickup-drop-request.pickup-drop-request",
-      "mappedBy": "user_id"
-    },
-    "mobile_user_12_user_membership": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::user-membership.user-membership",
-      "mappedBy": "user_id"
-    },
-    "mobile_user_14_user_rewards": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::user-reward.user-reward",
-      "mappedBy": "user_id"
-    },
-    "mobile_user_15_notifications": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::mobile-user-notification.mobile-user-notification",
-      "mappedBy": "user_id"
-    },
-    "mobile_user_16_user_offers": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::user-offer.user-offer",
-      "mappedBy": "user_id"
     }
   }
 }

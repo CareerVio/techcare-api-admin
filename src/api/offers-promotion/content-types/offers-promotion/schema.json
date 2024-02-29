@@ -4,7 +4,8 @@
   "info": {
     "singularName": "offers-promotion",
     "pluralName": "offers-promotions",
-    "displayName": "(Mobile user) 15.OffersPromotion"
+    "displayName": "(Mobile user) 15.OffersPromotion",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,12 +26,6 @@
     },
     "end_date": {
       "type": "datetime"
-    },
-    "mobile_user_16_user_offers": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::user-offer.user-offer",
-      "mappedBy": "offer_id"
     }
   }
 }

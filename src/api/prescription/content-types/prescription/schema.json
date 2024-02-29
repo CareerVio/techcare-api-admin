@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "user_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "mobile_user_3_prescriptions"
-    },
     "prescription_image_url": {
       "type": "string"
     },

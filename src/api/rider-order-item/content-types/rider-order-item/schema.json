@@ -14,12 +14,6 @@
     "item_id": {
       "type": "uid"
     },
-    "rider_order": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::rider-order.rider-order",
-      "inversedBy": "rider_order_items"
-    },
     "product_name": {
       "type": "string"
     },

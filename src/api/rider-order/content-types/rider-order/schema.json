@@ -15,12 +15,6 @@
     "order_id": {
       "type": "uid"
     },
-    "user_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::rider-user.rider-user",
-      "inversedBy": "rider_orders"
-    },
     "receiver_id": {
       "type": "string"
     },
@@ -58,26 +52,22 @@
     "rider_order_assignment": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::rider-order-assignment.rider-order-assignment",
-      "mappedBy": "rider_order"
+      "target": "api::rider-order-assignment.rider-order-assignment"
     },
     "rider_order_review": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::rider-order-review.rider-order-review",
-      "mappedBy": "rider_order"
+      "target": "api::rider-order-review.rider-order-review"
     },
-    "rider_order_items": {
+    "rider_order_item": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::rider-order-item.rider-order-item",
-      "mappedBy": "rider_order"
+      "relation": "oneToOne",
+      "target": "api::rider-order-item.rider-order-item"
     },
     "rider_order_image": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::rider-order-image.rider-order-image",
-      "inversedBy": "rider_order"
+      "target": "api::rider-order-image.rider-order-image"
     }
   }
 }

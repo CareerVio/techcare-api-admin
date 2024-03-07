@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "store_files",
+  "info": {
+    "singularName": "store-file",
+    "pluralName": "store-files",
+    "displayName": "Store File"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "store_file_id": {
+      "type": "uid"
+    },
+    "store_id": {
+      "type": "uid"
+    },
+    "file_type": {
+      "type": "string"
+    },
+    "file_path": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "uploaded_at": {
+      "type": "datetime"
+    }
+  }
+}

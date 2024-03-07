@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "store_order_details",
+  "info": {
+    "singularName": "store-order-detail",
+    "pluralName": "store-order-details",
+    "displayName": "Store Order Detail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "store_order_detail_id": {
+      "type": "uid"
+    },
+    "order_id": {
+      "type": "uid"
+    },
+    "item_id": {
+      "type": "uid"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "decimal"
+    }
+  }
+}

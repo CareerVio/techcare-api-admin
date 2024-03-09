@@ -2,7 +2,7 @@ const routesConfig = {
     routes: [
       {
         method: 'POST',
-        path: '/auth/register-rider',
+        path: '/auth/rider-register',
         handler: 'auth.registerRider',
         config: {
           policies: [],

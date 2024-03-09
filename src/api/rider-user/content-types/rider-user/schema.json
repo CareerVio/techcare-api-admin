@@ -12,16 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "user_id": {
-      "type": "uid"
-    },
     "name": {
       "type": "string"
     },
     "email": {
-      "type": "string"
-    },
-    "password": {
       "type": "string"
     },
     "phone_number": {
@@ -38,6 +32,9 @@
     },
     "earning": {
       "type": "decimal"
+    },
+    "password": {
+      "type": "password"
     }
   }
 }

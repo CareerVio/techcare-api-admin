@@ -7,8 +7,9 @@ import { factories } from '@strapi/strapi'
 export default factories.createCoreController('api::store-order.store-order', ({ strapi }) => ({
     async getStoreOrder(ctx){
         try {
-            const { id } = ctx.params;
-            const response = await strapi.entityService.findOne('api::store-order.store-order',id,{
+            const { store_id,order_id } = ctx.params;
+            const response = await strapi.entityService.findOne('api::store-order.store-order',order_id,{
+                filters : {store_id : store_id}
             });
             ctx.body = response;
         }catch (err){
@@ -17,7 +18,9 @@ export default factories.createCoreController('api::store-order.store-order', ({
     },
     async getAllStoreOrders(ctx){
         try {
+            const { store_id } = ctx.params;
             const response = await strapi.entityService.findMany('api::store-order.store-order',{
+                filters : {store_id : store_id}
             });
             ctx.body = response;
         }catch (err){
@@ -26,17 +29,19 @@ export default factories.createCoreController('api::store-order.store-order', ({
     },
     async updateStoreOrder(ctx){
         try {
-            const { id } = ctx.params;
-            const { store_order_id,store_id,customer_id,status,approved,uploaded_at,store_order_details } = ctx.request.body;
-            const response = await strapi.entityService.update('api::store-order.store-order', id , { data:{
+            const { store_id,order_id } = ctx.params;
+            const { store_order_id,customer_id,status,approved,uploaded_at,store_order_details } = ctx.request.body;
+            const response = await strapi.entityService.update('api::store-order.store-order', order_id , { data:{
                 store_order_id,
-                store_id,
+                store_id:store_id,
                 customer_id,
                 status,
                 approved,
                 uploaded_at:Date.now(),
                 store_order_details
-            }});
+            },
+            filters : {store_id:store_id}
+        });
             ctx.body = response;
         }catch (err){
             ctx.body = err;
@@ -44,16 +49,19 @@ export default factories.createCoreController('api::store-order.store-order', ({
     },
     async createStoreOrder(ctx){
         try {
-            const { store_order_id,store_id,customer_id,status,approved,uploaded_at,store_order_details } = ctx.request.body;
+            const { store_id } = ctx.params;
+            const { store_order_id,customer_id,status,approved,uploaded_at,store_order_details } = ctx.request.body;
             const response = await strapi.entityService.create('api::store-order.store-order', { data:{
                 store_order_id,
-                store_id,
+                store_id:store_id,
                 customer_id,
                 status,
                 approved,
                 uploaded_at:Date.now(),
                 store_order_details
-            }});
+            },
+            filters : {store_id:store_id}
+        });
             ctx.body = response;
         }catch (err){
             ctx.body = err;
@@ -61,9 +69,11 @@ export default factories.createCoreController('api::store-order.store-order', ({
     },
     async deleteStoreOrder(ctx){
         try {
-            const { id } = ctx.params;
-            const response = await strapi.entityService.delete('api::store-order.store-order', id);
-            ctx.body = response;
+            const { store_id,order_id } = ctx.params;
+            const response = await strapi.entityService.delete('api::store-order.store-order', order_id,{
+                filters: {store_id:store_id}
+            });
+            ctx.body = {message: 'Store Order deleted successfully'};
         }catch (err){
             ctx.body = err;
         }

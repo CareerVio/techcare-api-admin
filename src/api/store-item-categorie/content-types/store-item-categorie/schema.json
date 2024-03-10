@@ -4,7 +4,8 @@
   "info": {
     "singularName": "store-item-categorie",
     "pluralName": "store-item-categories",
-    "displayName": "Store Item Categorie"
+    "displayName": "Store Item Categorie",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,6 +21,9 @@
       "target": "api::store-item.store-item"
     },
     "name": {
+      "type": "string"
+    },
+    "store_id": {
       "type": "string"
     }
   }

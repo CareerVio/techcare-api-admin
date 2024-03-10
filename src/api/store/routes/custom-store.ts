@@ -8,7 +8,7 @@ export default {
         {
             method: 'GET',
             path: '/stores', 
-            handler: 'store.getStores',
+            handler: 'store.getAllStores',
         },
         {
           method: 'PUT',

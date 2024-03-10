@@ -4,7 +4,7 @@
 import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::store.store', ({ strapi }) => ({
-    async getStores(ctx){
+    async getAllStores(ctx){
         try {
             const response = await strapi.entityService.findMany('api::store.store',{
             });
@@ -16,7 +16,7 @@ export default factories.createCoreController('api::store.store', ({ strapi }) =
     async getStore(ctx){
         try {
             const { id } = ctx.params;
-            const response = await strapi.entityService.findOne('api::store.store',id,{
+            const response = await strapi.entityService.findOne('api::store.store',1,{
             });
             ctx.body = response;
         }catch (err){
@@ -67,8 +67,8 @@ export default factories.createCoreController('api::store.store', ({ strapi }) =
     async deleteStore(ctx){
         try {
             const { id } = ctx.params;
-            const response = await strapi.entityService.delete('api::store.store', id);
-            ctx.body = response;
+            const response = await strapi.entityService.delete('api::store.store', id,);
+            ctx.body = {message: 'Store deleted successfully'};
         }catch (err){
             ctx.body = err;
         }

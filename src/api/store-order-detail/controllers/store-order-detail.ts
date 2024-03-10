@@ -18,8 +18,14 @@ export default factories.createCoreController('api::store-order-detail.store-ord
     async updateStoreOrderDetail(ctx){
         try {
             const { id } = ctx.params;
-            const { data } = ctx.request.body;
-            const response = await strapi.entityService.update('api::store-order-detail.store-order-detail',{ data });
+            const { store_order_detail_id,order_id,item_id,quantity,price } = ctx.request.body;
+            const response = await strapi.entityService.update('api::store-order-detail.store-order-detail',{ data:{
+                store_order_detail_id,
+                order_id,
+                item_id,
+                quantity,
+                price
+            }});
             ctx.body = response;
         }catch (err){
             ctx.body = err;

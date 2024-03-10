@@ -27,8 +27,16 @@ export default factories.createCoreController('api::store-order.store-order', ({
     async updateStoreOrder(ctx){
         try {
             const { id } = ctx.params;
-            const { data } = ctx.request.body;
-            const response = await strapi.entityService.update('api::store-order.store-order', id , { data });
+            const { store_order_id,store_id,customer_id,status,approved,uploaded_at,store_order_details } = ctx.request.body;
+            const response = await strapi.entityService.update('api::store-order.store-order', id , { data:{
+                store_order_id,
+                store_id,
+                customer_id,
+                status,
+                approved,
+                uploaded_at:Date.now(),
+                store_order_details
+            }});
             ctx.body = response;
         }catch (err){
             ctx.body = err;
@@ -36,8 +44,16 @@ export default factories.createCoreController('api::store-order.store-order', ({
     },
     async createStoreOrder(ctx){
         try {
-            const { data } = ctx.request.body;
-            const response = await strapi.entityService.create('api::store-order.store-order', { data });
+            const { store_order_id,store_id,customer_id,status,approved,uploaded_at,store_order_details } = ctx.request.body;
+            const response = await strapi.entityService.create('api::store-order.store-order', { data:{
+                store_order_id,
+                store_id,
+                customer_id,
+                status,
+                approved,
+                uploaded_at:Date.now(),
+                store_order_details
+            }});
             ctx.body = response;
         }catch (err){
             ctx.body = err;

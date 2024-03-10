@@ -26,8 +26,19 @@ export default factories.createCoreController('api::store.store', ({ strapi }) =
     async updateStore(ctx){
         try {
             const { id } = ctx.params;
-            const { data } = ctx.request.body;
-            const response = await strapi.entityService.update('api::store.store', id , { data });
+            const { store_id, owner_id, name,address,description,contact_info,review,status,store_items,store_files,store_hours,store_orders } = ctx.request.body;
+            const response = await strapi.entityService.update('api::store.store', id , { data:{
+                store_id,
+                owner_id,
+                name,
+                address,
+                description,
+                contact_info,
+                review,
+                status,
+                store_files,
+                store_hours,
+            }});
             ctx.body = response;
         }catch (err){
             ctx.body = err;
@@ -35,8 +46,19 @@ export default factories.createCoreController('api::store.store', ({ strapi }) =
     },
     async createStore(ctx){
         try {
-            const { data } = ctx.request.body;
-            const response = await strapi.entityService.create('api::store.store', { data });
+            const { store_id, owner_id, name,address,description,contact_info,review,status,store_items,store_files,store_hours,store_orders } = ctx.request.body;
+            const response = await strapi.entityService.create('api::store.store', { data:{
+                store_id,
+                owner_id,
+                name,
+                address,
+                description,
+                contact_info,
+                review,
+                status,
+                store_files,
+                store_hours,
+            }});
             ctx.body = response;
         }catch (err){
             ctx.body = err;

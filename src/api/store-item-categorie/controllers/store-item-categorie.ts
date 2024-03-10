@@ -27,8 +27,12 @@ export default factories.createCoreController('api::store-item-categorie.store-i
     async updateCategory(ctx){
         try {
             const { id } = ctx.params;
-            const { data } = ctx.request.body;
-            const response = await strapi.entityService.update('api::store-item-categorie.store-item-categorie', id , { data });
+            const { store_item_categorie_id,store_items,name  } = ctx.request.body;
+            const response = await strapi.entityService.update('api::store-item-categorie.store-item-categorie', id , { data:{
+                store_item_categorie_id,
+                store_items,
+                name
+            }});
             ctx.body = response;
         }catch (err){
             ctx.body = err;
@@ -36,8 +40,12 @@ export default factories.createCoreController('api::store-item-categorie.store-i
     },
     async createCategory(ctx){
         try {
-            const { data } = ctx.request.body;
-            const response = await strapi.entityService.create('api::store-item-categorie.store-item-categorie', { data });
+            const { store_item_categorie_id,store_items,name  } = ctx.request.body;
+            const response = await strapi.entityService.create('api::store-item-categorie.store-item-categorie', { data:{
+                store_item_categorie_id,
+                store_items,
+                name
+            }});
             ctx.body = response;
         }catch (err){
             ctx.body = err;
@@ -77,8 +85,12 @@ export default factories.createCoreController('api::store-item-categorie.store-i
     async updateItemCategory(ctx){
         try {
             const { id } = ctx.params;
-            const { data } = ctx.request.body;
-            const response = await strapi.entityService.update('api::store-item.store-item', id , { data });
+            const { store_item_categorie_id,store_items,name  } = ctx.request.body;
+            const response = await strapi.entityService.update('api::store-item.store-item', id , { data:{
+                store_item_categorie_id,
+                store_items,
+                name
+            }});
             ctx.body = response;
         }catch (err){
             ctx.body = err;
@@ -86,8 +98,12 @@ export default factories.createCoreController('api::store-item-categorie.store-i
     },
     async createItemCategory(ctx){
         try {
-            const { data } = ctx.request.body;
-            const response = await strapi.entityService.create('api::store-item.store-item', { data });
+            const { store_item_categorie_id,store_items,name  } = ctx.request.body;
+            const response = await strapi.entityService.create('api::store-item.store-item', { data:{
+                store_item_categorie_id,
+                store_items,
+                name
+            }});
             ctx.body = response;
         }catch (err){
             ctx.body = err;

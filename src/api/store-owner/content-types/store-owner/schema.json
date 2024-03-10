@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "username": {
       "type": "string"
     },
     "contact_info": {
@@ -34,6 +34,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::store.store"
+    },
+    "password": {
+      "type": "string"
     }
   }
 }

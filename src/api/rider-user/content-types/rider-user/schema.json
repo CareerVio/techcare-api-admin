@@ -39,11 +39,6 @@
     "earning": {
       "type": "decimal"
     },
-    "user_authentications": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::rider-user-authentcation.rider-user-authentcation"
-    },
     "date_of_birth": {
       "type": "date"
     },

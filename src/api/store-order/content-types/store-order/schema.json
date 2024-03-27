@@ -15,9 +15,6 @@
     "store_order_id": {
       "type": "uid"
     },
-    "store_id": {
-      "type": "uid"
-    },
     "customer_id": {
       "type": "uid"
     },
@@ -34,6 +31,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::store-order-detail.store-order-detail"
+    },
+    "store_id": {
+      "type": "string"
     }
   }
 }

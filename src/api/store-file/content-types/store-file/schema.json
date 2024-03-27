@@ -4,7 +4,8 @@
   "info": {
     "singularName": "store-file",
     "pluralName": "store-files",
-    "displayName": "Store File"
+    "displayName": "Store File",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,9 +13,6 @@
   "pluginOptions": {},
   "attributes": {
     "store_file_id": {
-      "type": "uid"
-    },
-    "store_id": {
       "type": "uid"
     },
     "file_type": {
@@ -28,6 +26,9 @@
     },
     "uploaded_at": {
       "type": "datetime"
+    },
+    "store_id": {
+      "type": "string"
     }
   }
 }

@@ -22,7 +22,7 @@
       "type": "string"
     },
     "password": {
-      "type": "string"
+      "type": "password"
     },
     "phone_number": {
       "type": "string"
@@ -39,10 +39,52 @@
     "earning": {
       "type": "decimal"
     },
-    "user_authentications": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::rider-user-authentcation.rider-user-authentcation"
+    "date_of_birth": {
+      "type": "date"
+    },
+    "idAndPassportInfo": {
+      "type": "string"
+    },
+    "lineId": {
+      "type": "string"
+    },
+    "medicalIdNumber": {
+      "type": "string"
+    },
+    "studentIdImg": {
+      "type": "string"
+    },
+    "bikelicense": {
+      "type": "boolean"
+    },
+    "internstudent": {
+      "type": "boolean"
+    },
+    "internInstitution": {
+      "type": "string"
+    },
+    "bikelicenseImg": {
+      "type": "string"
+    },
+    "haveBike": {
+      "type": "boolean"
+    },
+    "haveAnotherJob": {
+      "type": "boolean"
+    },
+    "AvailableEmergency": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe"
+      ]
+    },
+    "locationToBeAssigned": {
+      "type": "string"
+    },
+    "CV": {
+      "type": "string"
     }
   }
 }

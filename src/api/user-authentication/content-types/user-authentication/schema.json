@@ -18,8 +18,7 @@
     "user_id": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "auth_id"
+      "target": "plugin::users-permissions.user"
     },
     "device_id": {
       "type": "string"

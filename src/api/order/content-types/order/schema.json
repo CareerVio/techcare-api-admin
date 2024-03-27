@@ -39,11 +39,10 @@
     "create_at": {
       "type": "datetime"
     },
-    "mobile_user_8_order_items": {
+    "order_items": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::order-item.order-item",
-      "mappedBy": "order_id"
+      "target": "api::order-item.order-item"
     }
   }
 }

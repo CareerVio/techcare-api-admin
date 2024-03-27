@@ -15,12 +15,6 @@
     "notification_id": {
       "type": "uid"
     },
-    "user_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "mobile_user_15_notifications"
-    },
     "message": {
       "type": "string"
     },

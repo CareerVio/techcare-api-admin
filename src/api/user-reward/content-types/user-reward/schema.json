@@ -4,7 +4,8 @@
   "info": {
     "singularName": "user-reward",
     "pluralName": "user-rewards",
-    "displayName": "(Mobile user) 14.UserReward"
+    "displayName": "(Mobile user) 14.UserReward",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,20 +15,18 @@
     "user_reward_id": {
       "type": "uid"
     },
-    "user_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "mobile_user_14_user_rewards"
-    },
-    "reward_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::reward.reward",
-      "inversedBy": "mobile_user_14_user_rewards"
-    },
     "redeemed_at": {
       "type": "datetime"
+    },
+    "rewards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::reward.reward"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

@@ -26,18 +26,6 @@
     },
     "description": {
       "type": "string"
-    },
-    "mobile_user_6_pharmacy": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::pharmacy.pharmacy",
-      "inversedBy": "med_stock"
-    },
-    "med_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::cart.cart",
-      "inversedBy": "cart_stock"
     }
   }
 }

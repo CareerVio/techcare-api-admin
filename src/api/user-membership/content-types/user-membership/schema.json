@@ -18,17 +18,15 @@
     "user_id": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "mobile_user_12_user_membership"
-    },
-    "tier_id": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::membership-tier.membership-tier",
-      "inversedBy": "mobile_user_12_user_membership"
+      "target": "plugin::users-permissions.user"
     },
     "points_balance": {
       "type": "integer"
+    },
+    "membership_tier": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::membership-tier.membership-tier"
     }
   }
 }

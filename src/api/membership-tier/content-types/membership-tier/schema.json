@@ -23,12 +23,6 @@
     },
     "required_points": {
       "type": "integer"
-    },
-    "mobile_user_12_user_membership": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::user-membership.user-membership",
-      "mappedBy": "tier_id"
     }
   }
 }

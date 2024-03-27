@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pick_drop_reqs",
+  "info": {
+    "singularName": "pick-drop-req",
+    "pluralName": "pick-drop-reqs",
+    "displayName": "(Mobile user) 09.PickDropReq",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "request_id": {
+      "type": "uid"
+    },
+    "pickup_point": {
+      "type": "string"
+    },
+    "destination_point": {
+      "type": "string"
+    },
+    "pickup_time": {
+      "type": "datetime"
+    },
+    "payment_method": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "distance": {
+      "type": "decimal"
+    }
+  }
+}

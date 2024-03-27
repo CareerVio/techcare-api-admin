@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rider_user_authentcations",
+  "info": {
+    "singularName": "rider-user-authentcation",
+    "pluralName": "rider-user-authentcations",
+    "displayName": "(Rider) User Authentcation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "auth_id": {
+      "type": "uid"
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    },
+    "expiry": {
+      "type": "datetime"
+    }
+  }
+}

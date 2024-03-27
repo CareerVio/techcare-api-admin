@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "store_owners",
+  "info": {
+    "singularName": "store-owner",
+    "pluralName": "store-owners",
+    "displayName": "Store Owner",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "username": {
+      "type": "string"
+    },
+    "contact_info": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "date_created": {
+      "type": "datetime"
+    },
+    "stores": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store.store"
+    },
+    "password": {
+      "type": "string"
+    }
+  }
+}

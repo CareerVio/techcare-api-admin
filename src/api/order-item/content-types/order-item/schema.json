@@ -4,8 +4,7 @@
   "info": {
     "singularName": "order-item",
     "pluralName": "order-items",
-    "displayName": "(Mobile user) 08.OrderItem",
-    "description": ""
+    "displayName": "(Mobile user) 8.OrderItem"
   },
   "options": {
     "draftAndPublish": true

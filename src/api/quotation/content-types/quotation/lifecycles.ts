@@ -9,7 +9,7 @@ export default {
         console.log('Inserted data', result);
         try {
             const quotationNumber = "TCS-Quotation-" + new Date().getFullYear() + "-" + result["id"].toString().padStart(6, '0');
-            await strapi.entityService.update('api::quotation.quotation',result["id"], { data: { quotationNumber , status : "OnProgress"} });
+            await strapi.entityService.update('api::quotation.quotation',result["id"], { data: { quotationNumber , status : "Waiting"} });
         } catch(err) {
             console.log(err);
         }

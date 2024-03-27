@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rider_order_reviews",
+  "info": {
+    "singularName": "rider-order-review",
+    "pluralName": "rider-order-reviews",
+    "displayName": "(Rider) Order Review"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "review_id": {
+      "type": "uid"
+    },
+    "rating": {
+      "type": "integer"
+    },
+    "review_text": {
+      "type": "text"
+    },
+    "reviewer_name": {
+      "type": "string"
+    }
+  }
+}

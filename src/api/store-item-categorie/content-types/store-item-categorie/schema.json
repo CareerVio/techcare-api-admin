@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "store_item_categories",
+  "info": {
+    "singularName": "store-item-categorie",
+    "pluralName": "store-item-categories",
+    "displayName": "Store Item Categorie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "store_item_categorie_id": {
+      "type": "uid"
+    },
+    "store_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store-item.store-item"
+    },
+    "name": {
+      "type": "string"
+    },
+    "store_id": {
+      "type": "string"
+    }
+  }
+}

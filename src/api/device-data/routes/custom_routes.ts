@@ -15,5 +15,10 @@ export default {
         path: '/device-datas', 
         handler: 'device-data.getDeviceDatas',
       },
+      {
+        method: 'GET',
+        path: '/device-data', 
+        handler: 'device-data.getDeviceData',
+      },
     ]
   }

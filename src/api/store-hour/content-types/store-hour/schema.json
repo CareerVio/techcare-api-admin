@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "store_hours",
+  "info": {
+    "singularName": "store-hour",
+    "pluralName": "store-hours",
+    "displayName": "Store Hour"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "store_hour_id": {
+      "type": "uid"
+    },
+    "store_id": {
+      "type": "uid"
+    },
+    "day_of_the_week": {
+      "type": "string"
+    },
+    "open_time": {
+      "type": "datetime"
+    },
+    "close_time": {
+      "type": "datetime"
+    }
+  }
+}

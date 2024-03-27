@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rider_orders",
+  "info": {
+    "singularName": "rider-order",
+    "pluralName": "rider-orders",
+    "displayName": "(Rider) Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order_id": {
+      "type": "uid"
+    },
+    "receiver_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "payment_method": {
+      "type": "string"
+    },
+    "pickup_or_delivery": {
+      "type": "enumeration",
+      "enum": [
+        "pickup",
+        "delivery"
+      ]
+    },
+    "pickup_address": {
+      "type": "string"
+    },
+    "destination_address": {
+      "type": "string"
+    },
+    "scheduled_time": {
+      "type": "datetime"
+    },
+    "recipient_name": {
+      "type": "string"
+    },
+    "create_date": {
+      "type": "datetime"
+    },
+    "earning_per_order": {
+      "type": "decimal"
+    },
+    "rider_order_assignment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rider-order-assignment.rider-order-assignment"
+    },
+    "rider_order_review": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rider-order-review.rider-order-review"
+    },
+    "rider_order_item": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rider-order-item.rider-order-item"
+    },
+    "rider_order_image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rider-order-image.rider-order-image"
+    }
+  }
+}

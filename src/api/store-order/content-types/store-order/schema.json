@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "store_orders",
+  "info": {
+    "singularName": "store-order",
+    "pluralName": "store-orders",
+    "displayName": "Store Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "store_order_id": {
+      "type": "uid"
+    },
+    "customer_id": {
+      "type": "uid"
+    },
+    "status": {
+      "type": "string"
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "uploaded_at": {
+      "type": "datetime"
+    },
+    "store_order_details": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store-order-detail.store-order-detail"
+    },
+    "store_id": {
+      "type": "string"
+    }
+  }
+}

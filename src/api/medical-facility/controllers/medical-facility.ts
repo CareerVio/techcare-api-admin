@@ -17,11 +17,9 @@ export default factories.createCoreController('api::medical-facility.medical-fac
             const { type , textSearch } = searchCriteria;
             
             const filters = {
-                type : {$containsi : type},
-                $or : [
+                $and : [
+                    {type : (type !== 'Hospital' && type !== 'Clinic') ? {$containsi : ''} : {$containsi : type}},
                     {name : {$containsi : textSearch}},
-                    {detail : {$containsi : textSearch}},
-                    {detail : {$containsi : textSearch}},
                 ]
             }
             const populate = ['medicalFacilityImage'];

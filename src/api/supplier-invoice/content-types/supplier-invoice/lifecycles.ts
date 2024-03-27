@@ -9,7 +9,7 @@ export default {
         console.log('Inserted data', result);
         try {
             const invoiceNumber = "TCS-SupplierInvoice-" + result["id"].toString().padStart(4, '0');
-            await strapi.entityService.update('api::supplier-invoice.supplier-invoice',result["id"], { data: { invoiceNumber , status : "onprogress"} });
+            await strapi.entityService.update('api::supplier-invoice.supplier-invoice',result["id"], { data: { invoiceNumber , status : "In Review"} });
         } catch(err) {
             console.log(err);
         }
@@ -17,7 +17,7 @@ export default {
         console.log('Inserted data', result);
         try {
             const supplier = "Suppiler-TCS-" + result["id"].toString().padStart(4, '0');
-            await strapi.entityService.update('api::supplier-invoice.supplier-invoice',result["id"], { data: { supplier , status : "onprogress"} });
+            await strapi.entityService.update('api::supplier-invoice.supplier-invoice',result["id"], { data: { supplier , status : "In Review"} });
         } catch(err) {
             console.log(err);
         }

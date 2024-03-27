@@ -53,9 +53,11 @@
       "type": "enumeration",
       "enum": [
         "Stick",
-        "Defect",
         "Part"
       ]
+    },
+    "varientyPeriod": {
+      "type": "date"
     }
   }
 }

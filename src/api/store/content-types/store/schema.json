@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stores",
+  "info": {
+    "singularName": "store",
+    "pluralName": "stores",
+    "displayName": "Store",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "store_id": {
+      "type": "uid"
+    },
+    "owner_id": {
+      "type": "uid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "contact_info": {
+      "type": "string"
+    },
+    "review": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "close"
+      ]
+    },
+    "store_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store-item.store-item"
+    },
+    "store_files": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store-file.store-file"
+    },
+    "store_hours": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store-hour.store-hour"
+    },
+    "store_orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store-order.store-order"
+    }
+  }
+}

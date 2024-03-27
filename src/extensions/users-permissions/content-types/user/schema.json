@@ -141,7 +141,10 @@
       "relation": "oneToMany",
       "target": "api::medical-facility.medical-facility"
     },
-    "firebaseNotificationToken": {
+    "firebaseMobileNotificationToken": {
+      "type": "string"
+    },
+    "firebaseWebNotificationToken": {
       "type": "string"
     }
   }

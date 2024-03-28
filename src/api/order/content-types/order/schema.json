@@ -15,12 +15,6 @@
     "order_id": {
       "type": "uid"
     },
-    "phamacy_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::pharmacy.pharmacy",
-      "inversedBy": "mobile_user_7_orders"
-    },
     "status": {
       "type": "string"
     },

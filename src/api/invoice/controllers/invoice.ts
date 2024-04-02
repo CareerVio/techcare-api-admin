@@ -5,14 +5,15 @@
 import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::invoice.invoice', ({ strapi }) => ({
-    async find(ctx) {
+    async findOne(ctx) {
         try {
-            const data = await strapi.entityService.findMany('api::invoice.invoice', {
+            const { id } = ctx.params;
+            const data = await strapi.entityService.findOne('api::invoice.invoice',id, {
                 populate : ["invoiceDetails"]
             });
             ctx.body = { data };
         } catch(err) {
             ctx.body = err;
         }
-    }
+    },
 }));

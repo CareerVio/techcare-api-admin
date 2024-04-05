@@ -113,10 +113,13 @@ export default factories.createCoreController('api::device-data.device-data', ({
                     user: userId 
                 },
                 fields: ['id'], 
+                limit: 1,
             });
+
             if (!myDevices) {
                 return ctx.badRequest('No devices found for this user');
             }
+            
             const deviceId = myDevices.map(device => device.id);
             // get all device-data associated with that users
             const myDevicesData = await strapi.entityService.findMany('api::device-data.device-data', {
@@ -156,7 +159,7 @@ export default factories.createCoreController('api::device-data.device-data', ({
                 return ctx.badRequest('No devices found for this user');
             }
             const deviceId = myDevices.map(device => device.id);
-            
+
             // get all device-data associated with that users
             const myDevicesData = await strapi.entityService.findMany('api::device-data.device-data', {
                 filters: {

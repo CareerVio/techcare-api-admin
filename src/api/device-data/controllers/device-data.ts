@@ -1,6 +1,7 @@
 'use strict'
 import { factories } from '@strapi/strapi'; 
 import { HttpStatusCode } from 'axios';
+import { calculateAverageDeviceData } from '../../../helper/AverageDeviceData';
 
 export default factories.createCoreController('api::device-data.device-data', ({strapi}) => ({
     async getDeviceDatas(ctx){
@@ -134,5 +135,28 @@ export default factories.createCoreController('api::device-data.device-data', ({
             console.error("There is an error getting your device datas:", error);
             return ctx.badRequest(error)
         }
+    },
+    async getMyAverageDeviceData(ctx) {
+        try {
+            const { id: userId } = ctx.state.user;
+            if (!userId) {
+                return ctx.badRequest('User not found');
+            }
+    
+            const myDevicesData = await strapi.entityService.findMany('api::device-data.device-data', {
+                filters: { userId: userId },
+                fields: [
+                    'heartRate', 'bloodPressureDia', 'bloodPressureSys',
+                    'temperature', 'spo2', 'stepCount'
+                ],
+            });
+    
+            const averages = calculateAverageDeviceData(myDevicesData);
+            ctx.body = { statusCode: 200, data: averages };
+        } catch (error) {
+            console.error("There is an error calculating the averages:", error);
+            return ctx.badRequest(error);
+        }
     }
 }));
+

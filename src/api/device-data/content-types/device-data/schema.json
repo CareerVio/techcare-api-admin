@@ -46,11 +46,6 @@
     "spo2": {
       "type": "float"
     },
-    "device": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::device.device"
-    },
     "bloodPressureDia": {
       "type": "integer"
     },
@@ -63,10 +58,10 @@
     "verification_result": {
       "type": "string"
     },
-    "userId": {
+    "device": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+      "target": "api::device.device"
     }
   }
 }

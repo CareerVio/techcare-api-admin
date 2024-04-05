@@ -20,5 +20,15 @@ export default {
         path: '/device-data', 
         handler: 'device-data.getDeviceData',
       },
+      {
+        method: 'GET',
+        path: '/device-data/me', 
+        handler: 'device-data.getMyDeviceData',
+      },
+      {
+        method: 'GET',
+        path: '/device-data/me/average',
+        handler: 'device-data.getMyAverageDeviceData',
+      }
     ]
   }

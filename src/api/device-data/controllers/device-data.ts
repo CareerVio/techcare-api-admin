@@ -1,17 +1,12 @@
 'use strict'
 import { factories } from '@strapi/strapi'; 
+import { HttpStatusCode } from 'axios';
+import { calculateAverageDeviceData } from '../../../helper/AverageDeviceData';
 
 export default factories.createCoreController('api::device-data.device-data', ({strapi}) => ({
     async getDeviceDatas(ctx){
         try {
             const { id } = ctx.state.user ? ctx.state.user : Object.create(null);
-            const { fetchOption } = ctx.params;
-            
-            if(fetchOption == "long-polling"){
-                await strapi.service('api::long-polling.long-polling').subscribe( id , '/device-datas/:searchCriteria');
-            }
-
-            //INNTER JOIN
 
             const get_device_filters = async () => {
                 const filters = { user : id };
@@ -25,7 +20,6 @@ export default factories.createCoreController('api::device-data.device-data', ({
                 return device_filters;
             }
             
-            //SELECT
             const filters = {};
             const sort = { id : 'desc'};
             if(ctx.params.searchCriteria){
@@ -60,13 +54,7 @@ export default factories.createCoreController('api::device-data.device-data', ({
     async getDeviceData(ctx){
         try {
             const { id } = ctx.state.user ? ctx.state.user : Object.create(null);
-            const { fetchOption } = ctx.params;
             
-            if(fetchOption == "long-polling"){
-                await strapi.service('api::long-polling.long-polling').subscribe( id , '/device-datas/:searchCriteria');
-            }
-
-            //INNTER JOIN
 
             const get_device_filters = async () => {
                 const filters = { user : id };
@@ -80,7 +68,6 @@ export default factories.createCoreController('api::device-data.device-data', ({
                 return device_filters;
             }
             
-            //SELECT
             const filters = {};
             const sort = { dateTime : 'desc'};
            
@@ -101,30 +88,18 @@ export default factories.createCoreController('api::device-data.device-data', ({
     },
     async create(ctx){
         try{
+
+            const { id: userId } = ctx.state.user;
             const { data } = ctx.request.body;
             
-            const response = await strapi.entityService.create('api::device-data.device-data' , { data });
+            const payload = {
+                ...data,
+                userId: userId,
+            }
+
+            const response = await strapi.entityService.create('api::device-data.device-data' , { data : payload });
+
             ctx.body = response;
-
-            // Trigger Event
-            const device = await strapi.entityService.findOne('api::device.device' , data.device , { populate : 'user' });
-            const { id } = device.user;
-
-            // GET FCM TOKEN
-            const { firebaseMobileNotificationToken, firebaseWebNotificationToken } = await strapi.entityService.findOne('plugin::users-permissions.user' , id);
-
-            //SELECT
-            const filters = {};
-            const sort = { id : 'desc'};
-            
-            const populate = ['device'];
-            const device_data  = await strapi.entityService.findMany('api::device-data.device-data' , { filters , populate , sort , limit:1 });
-
-            console.log(device_data)
-            const recoveryToken = "ehuMidp0frQkyXVhu18j7c:APA91bFMkZtEj8d1gWDAezbrxKt1HmDGHMKWDIpLkz7uLdsoBmKeRjuvTBOkT1MsUhzipRhxCyULGr5RQ2DQm9RsvtGzlGbIyMCNkY3igViqm7SIsqlSQC-XuLaNIo6wP9YWO6S8ptAU";
-            await strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").sendMessageToDevices([ firebaseWebNotificationToken ], "device-datas",JSON.stringify({data :device_data}),{});
-            await strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").sendMessageToDevices([ firebaseMobileNotificationToken ], "device-datas",JSON.stringify({data :device_data}),{});
-            await strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").sendMessageToDevices([ recoveryToken ], "device-datas",JSON.stringify({data :device_data}),{});
             
         } catch (err) {
             console.log(err);
@@ -132,4 +107,56 @@ export default factories.createCoreController('api::device-data.device-data', ({
         }
         
     },
+    async getMyDeviceData(ctx) {
+        try {
+            const { id : userId } = ctx.state.user;
+            console.log("Requesting the device data from:", userId)
+            if (!userId) {
+                return ctx.badRequest('User not found');
+            }
+
+            // get all device-data associated with that users
+            const myDevicesData = await strapi.entityService.findMany('api::device-data.device-data', {
+                filters: {
+                    userId: userId  
+                },
+                populate: {
+                    device: true, 
+                },
+            });
+
+            const response = {
+                statusCode: HttpStatusCode.Ok,
+                data: myDevicesData,
+            }
+
+            ctx.body = response;
+        } catch (error) {
+            console.error("There is an error getting your device datas:", error);
+            return ctx.badRequest(error)
+        }
+    },
+    async getMyAverageDeviceData(ctx) {
+        try {
+            const { id: userId } = ctx.state.user;
+            if (!userId) {
+                return ctx.badRequest('User not found');
+            }
+    
+            const myDevicesData = await strapi.entityService.findMany('api::device-data.device-data', {
+                filters: { userId: userId },
+                fields: [
+                    'heartRate', 'bloodPressureDia', 'bloodPressureSys',
+                    'temperature', 'spo2', 'stepCount'
+                ],
+            });
+    
+            const averages = calculateAverageDeviceData(myDevicesData);
+            ctx.body = { statusCode: 200, data: averages };
+        } catch (error) {
+            console.error("There is an error calculating the averages:", error);
+            return ctx.badRequest(error);
+        }
+    }
 }));
+

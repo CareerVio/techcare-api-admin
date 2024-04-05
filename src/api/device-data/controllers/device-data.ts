@@ -1,17 +1,11 @@
 'use strict'
 import { factories } from '@strapi/strapi'; 
+import { HttpStatusCode } from 'axios';
 
 export default factories.createCoreController('api::device-data.device-data', ({strapi}) => ({
     async getDeviceDatas(ctx){
         try {
             const { id } = ctx.state.user ? ctx.state.user : Object.create(null);
-            const { fetchOption } = ctx.params;
-            
-            if(fetchOption == "long-polling"){
-                await strapi.service('api::long-polling.long-polling').subscribe( id , '/device-datas/:searchCriteria');
-            }
-
-            //INNTER JOIN
 
             const get_device_filters = async () => {
                 const filters = { user : id };
@@ -25,7 +19,6 @@ export default factories.createCoreController('api::device-data.device-data', ({
                 return device_filters;
             }
             
-            //SELECT
             const filters = {};
             const sort = { id : 'desc'};
             if(ctx.params.searchCriteria){
@@ -60,13 +53,7 @@ export default factories.createCoreController('api::device-data.device-data', ({
     async getDeviceData(ctx){
         try {
             const { id } = ctx.state.user ? ctx.state.user : Object.create(null);
-            const { fetchOption } = ctx.params;
             
-            if(fetchOption == "long-polling"){
-                await strapi.service('api::long-polling.long-polling').subscribe( id , '/device-datas/:searchCriteria');
-            }
-
-            //INNTER JOIN
 
             const get_device_filters = async () => {
                 const filters = { user : id };
@@ -80,7 +67,6 @@ export default factories.createCoreController('api::device-data.device-data', ({
                 return device_filters;
             }
             
-            //SELECT
             const filters = {};
             const sort = { dateTime : 'desc'};
            
@@ -132,4 +118,33 @@ export default factories.createCoreController('api::device-data.device-data', ({
         }
         
     },
+    async getMyDeviceData(ctx) {
+        try {
+            const { id : userId } = ctx.state.user;
+            console.log("Requesting the device data from:", userId)
+            if (!userId) {
+                return ctx.badRequest('User not found');
+            }
+
+            // get all device-data associated with that users
+            const myDevicesData = await strapi.entityService.findMany('api::device-data.device-data', {
+                filters: {
+                    userId: userId  
+                },
+                populate: {
+                    device: true, 
+                },
+            });
+
+            const response = {
+                statusCode: HttpStatusCode.Ok,
+                data: myDevicesData,
+            }
+
+            ctx.body = response;
+        } catch (error) {
+            console.error("There is an error getting your device datas:", error);
+            return ctx.badRequest(error)
+        }
+    }
 }));

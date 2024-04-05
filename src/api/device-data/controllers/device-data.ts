@@ -88,16 +88,10 @@ export default factories.createCoreController('api::device-data.device-data', ({
     },
     async create(ctx){
         try{
-
-            const { id: userId } = ctx.state.user;
             const { data } = ctx.request.body;
             
-            const payload = {
-                ...data,
-                userId: userId,
-            }
 
-            const response = await strapi.entityService.create('api::device-data.device-data' , { data : payload });
+            const response = await strapi.entityService.create('api::device-data.device-data' , { data });
 
             ctx.body = response;
             
@@ -105,20 +99,29 @@ export default factories.createCoreController('api::device-data.device-data', ({
             console.log(err);
             return ctx.badRequest(err);
         }
-        
     },
     async getMyDeviceData(ctx) {
         try {
             const { id : userId } = ctx.state.user;
-            console.log("Requesting the device data from:", userId)
+
             if (!userId) {
                 return ctx.badRequest('User not found');
             }
 
+            const myDevices = await strapi.entityService.findMany('api::device.device', {
+                filters: {
+                    user: userId 
+                },
+                fields: ['id'], 
+            });
+            if (!myDevices) {
+                return ctx.badRequest('No devices found for this user');
+            }
+            const deviceId = myDevices.map(device => device.id);
             // get all device-data associated with that users
             const myDevicesData = await strapi.entityService.findMany('api::device-data.device-data', {
                 filters: {
-                    userId: userId  
+                    device: deviceId,
                 },
                 populate: {
                     device: true, 
@@ -143,12 +146,25 @@ export default factories.createCoreController('api::device-data.device-data', ({
                 return ctx.badRequest('User not found');
             }
     
+            const myDevices = await strapi.entityService.findMany('api::device.device', {
+                filters: {
+                    user: userId 
+                },
+                fields: ['id'], 
+            });
+            if (!myDevices) {
+                return ctx.badRequest('No devices found for this user');
+            }
+            const deviceId = myDevices.map(device => device.id);
+            
+            // get all device-data associated with that users
             const myDevicesData = await strapi.entityService.findMany('api::device-data.device-data', {
-                filters: { userId: userId },
-                fields: [
-                    'heartRate', 'bloodPressureDia', 'bloodPressureSys',
-                    'temperature', 'spo2', 'stepCount'
-                ],
+                filters: {
+                    device: deviceId,
+                },
+                populate: {
+                    device: true, 
+                },
             });
     
             const averages = calculateAverageDeviceData(myDevicesData);

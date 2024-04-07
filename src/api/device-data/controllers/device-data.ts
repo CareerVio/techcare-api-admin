@@ -1,6 +1,8 @@
 'use strict'
 import { factories } from '@strapi/strapi'; 
 
+var isAlerted = false;
+
 export default factories.createCoreController('api::device-data.device-data', ({strapi}) => ({
     async getDeviceDatas(ctx){
         try {
@@ -126,6 +128,15 @@ export default factories.createCoreController('api::device-data.device-data', ({
             await strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").sendMessageToDevices([ firebaseMobileNotificationToken ], "device-datas",JSON.stringify({data :device_data}),{});
             await strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").sendMessageToDevices([ recoveryToken ], "device-datas",JSON.stringify({data :device_data}),{});
             
+           var isFallDetect = false;
+           if(device_data[0].fallDetect == "1"){
+            isFallDetect = true;
+           }
+           if(isFallDetect && !isAlerted){
+            isAlerted = true;
+            await strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").sendMessageToDevices([ firebaseMobileNotificationToken ], "emergency-alert"," ",{});
+           }
+           isAlerted = isFallDetect;
         } catch (err) {
             console.log(err);
             return ctx.badRequest(err);

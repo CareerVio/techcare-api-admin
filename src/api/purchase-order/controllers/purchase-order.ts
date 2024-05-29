@@ -14,5 +14,16 @@ export default factories.createCoreController('api::purchase-order.purchase-orde
         } catch(err) {
             ctx.body = err;
         }
+    },
+    async findOne(ctx) {
+        try {
+            const { id } = ctx.params;
+            const data = await strapi.entityService.findOne('api::purchase-order.purchase-order',id, {
+                populate : ["purchaseOrderDetails"]
+            });
+            ctx.body = { data };
+        } catch(err) {
+            ctx.body = err;
+        }
     }
 }));

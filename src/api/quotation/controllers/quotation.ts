@@ -14,5 +14,16 @@ export default factories.createCoreController('api::quotation.quotation', ({ str
         } catch(err) {
             ctx.body = err;
         }
+    },
+    async findOne(ctx) {
+        try {
+            const { id } = ctx.params;
+            const data = await strapi.entityService.findOne('api::quotation.quotation',id, {
+                populate : ["quotationDetails", "sale"]
+            });
+            ctx.body = { data };
+        } catch(err) {
+            ctx.body = err;
+        }
     }
 }));

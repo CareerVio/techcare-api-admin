@@ -129,6 +129,8 @@ export default factories.createCoreController('api::device-data.device-data', ({
                 populate: {
                     device: true, 
                 },
+                limit: 100,
+                sort: { id: 'desc' },
             });
 
             const response = {

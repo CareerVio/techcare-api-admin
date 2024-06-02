@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stalls",
+  "info": {
+    "singularName": "stall",
+    "pluralName": "stalls",
+    "displayName": "Stall",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "serial_number": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float"
+    },
+    "volume_level": {
+      "type": "float"
+    }
+  }
+}

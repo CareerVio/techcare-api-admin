@@ -8,7 +8,7 @@ export default factories.createCoreController('api::outstanding-payment.outstand
     async find(ctx) {
         try {
             const data = await strapi.entityService.findMany('api::outstanding-payment.outstanding-payment', {
-                
+                populate : ['refer']
             });
             ctx.body = { data };
         } catch(err) {

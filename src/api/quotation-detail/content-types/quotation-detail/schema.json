@@ -4,7 +4,8 @@
   "info": {
     "singularName": "quotation-detail",
     "pluralName": "quotation-details",
-    "displayName": "20. Quotation Details"
+    "displayName": "20. Quotation Details",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -28,6 +29,9 @@
     },
     "discount": {
       "type": "decimal"
+    },
+    "amount": {
+      "type": "integer"
     }
   }
 }

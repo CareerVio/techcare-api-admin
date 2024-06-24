@@ -32,6 +32,12 @@
     },
     "amount": {
       "type": "integer"
+    },
+    "quotation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::quotation.quotation",
+      "inversedBy": "quotationDetails"
     }
   }
 }

@@ -35,6 +35,9 @@
     },
     "remaining": {
       "type": "decimal"
+    },
+    "note": {
+      "type": "text"
     }
   }
 }

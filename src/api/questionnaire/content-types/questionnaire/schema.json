@@ -88,10 +88,6 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "bloodGroup": {
-      "type": "string",
-      "required": false
-    },
     "careTakerLastName": {
       "type": "string"
     },
@@ -121,6 +117,33 @@
       "type": "email"
     },
     "preferredDoctorOthers": {
+      "type": "string"
+    },
+    "bloodType": {
+      "type": "enumeration",
+      "enum": [
+        "A",
+        "B",
+        "AB",
+        "O"
+      ]
+    },
+    "rhType": {
+      "type": "string"
+    },
+    "diseasesOther": {
+      "type": "text"
+    },
+    "anyInsuranceCompany": {
+      "type": "string"
+    },
+    "recentTherapy": {
+      "type": "string"
+    },
+    "anyPreferredDoctor": {
+      "type": "string"
+    },
+    "preferredDoctorExpertise": {
       "type": "string"
     }
   }

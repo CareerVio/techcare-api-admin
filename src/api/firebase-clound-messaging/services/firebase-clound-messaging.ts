@@ -54,6 +54,7 @@ export default () => ({
           
           try {
               const response = await admin.messaging().sendMulticast(message);
+              console.log(response)
           } catch(err) {
               strapi.log.error('Notifications/sendMessageToDevices', err.errorInfo);
               //throw new Error(err);

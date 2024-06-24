@@ -19,8 +19,8 @@
       "type": "enumeration",
       "enum": [
         "Success",
-        "rejected",
-        "onprogress"
+        "Rejected",
+        "On Progress"
       ]
     },
     "note": {

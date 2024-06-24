@@ -62,8 +62,9 @@
     },
     "quotationDetails": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::quotation-detail.quotation-detail"
+      "relation": "oneToMany",
+      "target": "api::quotation-detail.quotation-detail",
+      "mappedBy": "quotation"
     }
   }
 }

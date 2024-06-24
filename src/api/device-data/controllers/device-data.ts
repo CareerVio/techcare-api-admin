@@ -91,11 +91,37 @@ export default factories.createCoreController('api::device-data.device-data', ({
     async create(ctx){
         try{
             const { data } = ctx.request.body;
-            
-
             const response = await strapi.entityService.create('api::device-data.device-data' , { data });
-
             ctx.body = response;
+            // Trigger Event
+            const device = await strapi.entityService.findOne('api::device.device' , data.device , { populate : 'user' });
+            const { id } = device.user;
+
+            // GET FCM TOKEN
+            const { firebaseMobileNotificationToken, firebaseWebNotificationToken } = await strapi.entityService.findOne('plugin::users-permissions.user' , id);
+
+            //SELECT
+            const filters = {};
+            const sort = { id : 'desc'};
+            
+            const populate = ['device'];
+            const device_data  = await strapi.entityService.findMany('api::device-data.device-data' , { filters , populate , sort , limit:1 });
+
+            console.log(device_data)
+            const recoveryToken = "ehuMidp0frQkyXVhu18j7c:APA91bFMkZtEj8d1gWDAezbrxKt1HmDGHMKWDIpLkz7uLdsoBmKeRjuvTBOkT1MsUhzipRhxCyULGr5RQ2DQm9RsvtGzlGbIyMCNkY3igViqm7SIsqlSQC-XuLaNIo6wP9YWO6S8ptAU";
+            await strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").sendMessageToDevices([ firebaseWebNotificationToken ], "device-datas",JSON.stringify({data :device_data}),{});
+            await strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").sendMessageToDevices([ firebaseMobileNotificationToken ], "device-datas",JSON.stringify({data :device_data}),{});
+            await strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").sendMessageToDevices([ recoveryToken ], "device-datas",JSON.stringify({data :device_data}),{});
+            
+           var isFallDetect = false;
+           if(device_data[0].fallDetect == "1"){
+            isFallDetect = true;
+           }
+           if(isFallDetect && !isAlerted){
+            isAlerted = true;
+            await strapi.service("api::firebase-clound-messaging.firebase-clound-messaging").sendMessageToDevices([ firebaseMobileNotificationToken ], "emergency-alert"," ",{});
+           }
+           isAlerted = isFallDetect;
             
         } catch (err) {
             console.log(err);

@@ -15,9 +15,6 @@
     "dateTime": {
       "type": "datetime"
     },
-    "fallDetect": {
-      "type": "string"
-    },
     "stepCount": {
       "type": "integer"
     },
@@ -62,6 +59,37 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::device.device"
+    },
+    "calibrate": {
+      "type": "enumeration",
+      "enum": [
+        "calibrating",
+        "calibrate timeout",
+        "calibrated",
+        "false"
+      ]
+    },
+    "sos": {
+      "type": "enumeration",
+      "enum": [
+        "true",
+        "false"
+      ]
+    },
+    "fall": {
+      "type": "enumeration",
+      "enum": [
+        "true",
+        "false"
+      ]
+    },
+    "shutdown": {
+      "type": "enumeration",
+      "enum": [
+        "false",
+        "request",
+        "already"
+      ]
     }
   }
 }

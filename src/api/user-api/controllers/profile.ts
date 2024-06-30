@@ -4,9 +4,7 @@ export default {
       try {
         console.log(ctx.params);
         const { id } = !ctx.params.id ? ctx.state.user : ctx.params;
-        
-        const questionnaire_field = ['weight' , 'height' , 'bloodGroup'];
-        
+        const questionnaire_field = ['weight' , 'height' , 'bloodType'];
         const response_user_permission = await strapi.entityService.findOne('plugin::users-permissions.user', id , {
           populate : ['profileImage' , 'country' , 'province' ]
         });

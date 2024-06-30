@@ -42,6 +42,25 @@
     },
     "repairId": {
       "type": "string"
+    },
+    "approvedTime": {
+      "type": "datetime"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "repairOrderNumber": {
+      "type": "string"
+    },
+    "completedTime": {
+      "type": "datetime"
+    },
+    "device": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::device.device"
     }
   }
 }

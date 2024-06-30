@@ -42,32 +42,13 @@ export default factories.createCoreController('api::appointment.appointment' , (
         try {
             const { id } = ctx.state.user;
             const { searchCriteria } = JSON.parse(ctx.params.searchCriteria);
-            
-
-            const { date } = searchCriteria
-
             const get_available_times = async (doctor_id : string) => {
                 const filters = {
                     doctor : doctor_id
                 }
                 return await strapi.entityService.findMany('api::available-time.available-time', { filters });
             }
-            const get_questionnaire = async () => {
-                console.log(id);
-                const [ questionnaire ] = await strapi.entityService.findMany('api::questionnaire.questionnaire', {
-                    
-                    filters : { user : id },
-                    populate : ['mostVisitHospital']
-                });
-                return questionnaire;
-            };
-            const questionnaire = await get_questionnaire();
-
-            const filters = questionnaire.mostVisitHospital ? {
-                medicalFacility : questionnaire.mostVisitHospital
-            } : {};
-
-            const doctors = await strapi.entityService.findMany('api::doctor.doctor' , { filters , populate : ['profileImage','medicalFacility'] });
+            const doctors = await strapi.entityService.findMany('api::doctor.doctor' , { populate : ['profileImage','medicalFacility'] });
             for (let doctor of doctors){
                 doctor["availableTime"] = await get_available_times(doctor.id);
             }

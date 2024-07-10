@@ -18,7 +18,7 @@
     "appointment": {
       "type": "date"
     },
-    "caliberate": {
+    "calibrateStatus": {
       "type": "enumeration",
       "enum": [
         "Success",
@@ -27,20 +27,6 @@
     },
     "remark": {
       "type": "text"
-    },
-    "repair": {
-      "type": "enumeration",
-      "enum": [
-        "Required",
-        "Not Required",
-        "Cannot Repair"
-      ]
-    },
-    "equipmentId": {
-      "type": "string"
-    },
-    "jobId": {
-      "type": "string"
     },
     "requestedPart": {
       "type": "enumeration",
@@ -59,6 +45,44 @@
         "Sim Card",
         "Packaging Box.",
         "USB -C Wire"
+      ]
+    },
+    "manufacturingOrderNumber": {
+      "type": "string"
+    },
+    "requestedTime": {
+      "type": "datetime"
+    },
+    "approvedTime": {
+      "type": "datetime"
+    },
+    "completedTime": {
+      "type": "datetime"
+    },
+    "device": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::device.device"
+    },
+    "serviceOrderStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Waiting for Service",
+        "Completed Service",
+        "Fail"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "approveStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Waiting",
+        "Approved",
+        "Rejected"
       ]
     }
   }

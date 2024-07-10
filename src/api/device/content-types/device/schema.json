@@ -29,6 +29,12 @@
     },
     "retrieve_date": {
       "type": "datetime"
+    },
+    "bomLists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bom-list.bom-list",
+      "mappedBy": "device"
     }
   }
 }

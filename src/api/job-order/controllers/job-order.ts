@@ -8,7 +8,7 @@ export default factories.createCoreController('api::job-order.job-order', ({ str
     async find(ctx) {
         try {
             const data = await strapi.entityService.findMany('api::job-order.job-order', {
-                
+                populate: ['device', 'user']
             });
             ctx.body = { data };
         } catch(err) {

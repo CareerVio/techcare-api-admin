@@ -8,7 +8,7 @@ export default factories.createCoreController('api::repair-order.repair-order', 
     async find(ctx) {
         try {
             const data = await strapi.entityService.findMany('api::repair-order.repair-order', {
-                
+                populate: ['device', 'user']
             });
             ctx.body = { data };
         } catch(err) {

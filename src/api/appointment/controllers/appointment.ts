@@ -23,7 +23,7 @@ export default factories.createCoreController('api::appointment.appointment' , (
 
             const filters = { user : id, date : date };
             const sort = { id : 'desc'};
-            const populate = ['doctor','medicalFacility','medicalFacilityImage'];
+            const populate = ['doctor','medicalFacility','medicalFacilityImage','diseases'];
             const appointments = await strapi.entityService.findMany('api::appointment.appointment', { filters , populate , sort });
 
             for ( let appointment of appointments){
@@ -66,7 +66,8 @@ export default factories.createCoreController('api::appointment.appointment' , (
         });
         const filters = { medicalFacility: medical_facility.id };
         const sort = { id : 'desc'};
-        const data = await strapi.entityService.findMany('api::appointment.appointment', { filters , sort });
+        const populate = ['diseases']
+        const data = await strapi.entityService.findMany('api::appointment.appointment', { filters , sort , populate });
         ctx.body = { data };
     }
 }));

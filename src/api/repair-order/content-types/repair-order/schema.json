@@ -18,14 +18,14 @@
     "appointment": {
       "type": "date"
     },
-    "caliberate": {
+    "calibrateStatus": {
       "type": "enumeration",
       "enum": [
         "Success",
         "Fail"
       ]
     },
-    "repair": {
+    "repairStatus": {
       "type": "enumeration",
       "enum": [
         "Under Repair",
@@ -36,12 +36,6 @@
     },
     "remark": {
       "type": "text"
-    },
-    "equipmentId": {
-      "type": "string"
-    },
-    "repairId": {
-      "type": "string"
     },
     "approvedTime": {
       "type": "datetime"
@@ -61,6 +55,17 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::device.device"
+    },
+    "approveStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Waiting",
+        "Approved",
+        "Rejected"
+      ]
+    },
+    "requestedTime": {
+      "type": "datetime"
     }
   }
 }

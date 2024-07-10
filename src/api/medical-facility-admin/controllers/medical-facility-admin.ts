@@ -56,7 +56,7 @@ export default {
         filters : { admin : id },
     });
     
-    const populate = ['doctor','user'];
+    const populate = ['doctor','user','diseases'];
     const filters = { medicalFacility: medical_facility.id };
     const sort = { id : 'desc'};
     const data = await strapi.entityService.findMany('api::appointment.appointment', { filters , sort , populate });

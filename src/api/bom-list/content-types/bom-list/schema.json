@@ -18,7 +18,9 @@
     "status": {
       "type": "enumeration",
       "enum": [
-        "Replace"
+        "Replace",
+        "Available",
+        "Repair"
       ]
     },
     "date": {
@@ -29,6 +31,25 @@
     },
     "no": {
       "type": "integer"
+    },
+    "lastModifiedTime": {
+      "type": "datetime"
+    },
+    "partType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::part.part"
+    },
+    "device": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::device.device",
+      "inversedBy": "bomLists"
+    },
+    "partStock": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::stock.stock"
     }
   }
 }

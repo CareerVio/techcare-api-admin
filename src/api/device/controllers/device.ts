@@ -20,7 +20,9 @@ export default factories.createCoreController('api::device.device' , ({strapi}) 
     },
     async find(ctx) {
         try {
-          const response = await strapi.entityService.findMany('api::device.device');
+          const response = await strapi.entityService.findMany('api::device.device', {
+            populate : ['user']
+          });
 
           ctx.body = response;
 

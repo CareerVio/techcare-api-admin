@@ -7,9 +7,11 @@ import { factories } from '@strapi/strapi';
 export default factories.createCoreController('api::questionnaire.questionnaire',({ strapi }) => ({
     async getQuestionnaire(ctx) {
         try {
-          const { id } = ctx.state.user;
+          const { userid } = ctx.params
+          const { id } = ctx.state.user ? ctx.state.user : Object.create(null);
+          const user = userid ? userid : id
           let [ data ] = await strapi.entityService.findMany('api::questionnaire.questionnaire', {
-            filters : { user : id },
+            filters : { user },
             sort : { id : 'desc' },
             populate : ["mostVisitHospital", "preferredDoctor", "insuranceCompany"]
           });

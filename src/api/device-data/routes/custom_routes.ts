@@ -22,6 +22,11 @@ export default {
       },
       {
         method: 'GET',
+        path: '/device-data/:userid', 
+        handler: 'device-data.getDeviceData',
+      },
+      {
+        method: 'GET',
         path: '/device-data/me', 
         handler: 'device-data.getMyDeviceData',
       },

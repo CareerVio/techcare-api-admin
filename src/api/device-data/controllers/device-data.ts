@@ -55,7 +55,8 @@ export default factories.createCoreController('api::device-data.device-data', ({
     },
     async getDeviceData(ctx){
         try {
-            const { id } = ctx.state.user ? ctx.state.user : Object.create(null);
+            const { userid } = ctx.params
+            const { id } = userid ? userid : ctx.state.user;
             
 
             const get_device_filters = async () => {
